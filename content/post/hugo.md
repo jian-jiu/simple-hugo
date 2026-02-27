@@ -7,6 +7,22 @@ tags:
     - hugo
 ---
 
+## hugo md头
+```md
+
+---
+title: 标题
+description: 描述
+date: 2026-02-25
+slug: url
+categories:
+    - hugo
+tags:
+    - hugo
+---
+
+```
+
 ## hugo常用命令
 
 [参考](https://xxcjw.github.io/p/hugo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/)
@@ -34,3 +50,13 @@ hugo server --gc -D
 
 ## cf部署
 [参考](https://www.heyjude.blog/zh-cn/posts/deploy-hugo-to-cloudflare/)
+
+## 部链接用新窗口
+拷贝 layouts/_markup/render-link.
+
+新增 layouts/_default/_markup/render-link.html
+
+## cdn外链图片无法直接点击打开
+[博客参考](https://ghjayce.github.io/p/static-site-generator/hugo/hugo-theme-stack-gallery-study/)
+
+[github 参考](https://github.com/CaiJimmy/hugo-theme-stack/discussions/659)

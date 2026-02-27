@@ -32,3 +32,8 @@ favicon        = "img/avatar.png"
     [cookies.categories]
         analytics  = true
         functional = true
+
+[imageProcessing.content]
+    enabled = false
+[render.image.externalLink]
+    enabled = true
