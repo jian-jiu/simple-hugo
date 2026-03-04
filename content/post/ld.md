@@ -127,3 +127,8 @@ qq下载默认带后缀【.1】需要删掉才能安装
 ![](https://cdn.242499.xyz/2026/03/04/5145d32bad71abe7622a98a3a3d18eca.png)
 
 可以点击下面两个测试一下是否正常
+
+## 游戏加速器推荐
+[biubiu加速器](https://biubiu001.com/)
+
+[外星人加速器](https://www.et001.com/m/)
