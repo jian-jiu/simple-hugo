@@ -10,3 +10,6 @@ tags:
 
 ## 检测预览
 [预览链接的内容](https://whatslink.info)
+
+## MoviePilot
+[插件](https://github.com/jtcymc/MoviePilot-PluginsV2)
