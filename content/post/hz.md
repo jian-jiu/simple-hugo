@@ -1,6 +1,6 @@
 ---
 title: 盒子
-slug: ld
+slug: hz
 date: 2026-02-26
 categories:
     - 盒子
