@@ -71,6 +71,7 @@ jetbra目录，编辑 config-jetbrains\url.conf 文件
 | Statistic                      | 项目信息统计                              |
 
 ## AI
+[对比](https://blog.csdn.net/Brad_PiTt7/article/details/145643082)
 
 GitHub Copilot(收费)
 codeium
