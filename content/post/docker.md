@@ -61,3 +61,10 @@ sudo systemctl restart docker
 [Portainer](https://www.portainer.cn/)
 
 wud 太复杂了
+
+## 应用推荐
+
+### 小雅
+[参考](https://hub.docker.com/r/xiaoyaliu/alist)
+
+[参考](https://github.com/xiaoyaDev/xiaoya-alist/issues/312)
