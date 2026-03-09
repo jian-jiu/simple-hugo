@@ -13,6 +13,10 @@ tags:
 ### XSLF4J
 [参考](https://blog.csdn.net/weweeeeeeee/article/details/112985672)
 
+### p6Spy sql日志
+这个有损性能
+[详情](https://blog.csdn.net/javaYouCome/article/details/114360586)
+
 ## private、protected、public和default的区别
 [参考](https://www.cnblogs.com/jingmengxintang/p/5898900.html)
 
@@ -38,6 +42,20 @@ tags:
 ## @Inherited注解的作用
 [@Inherited注解的作用](https://www.jianshu.com/p/7f54e7250be3)
 
+## 随机数加快
+-Djava.security.egd=file:/dev/urandom 作用
+
+[参考](https://codingdict.com/questions/121478)
+
+[参考](https://blog.51cto.com/leo01/1795447)
+
+
+## 前端参数判断
+[官网](https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#validator-gettingstarted-createproject)
+
+[字符串判断](https://www.cnblogs.com/yickel/p/14500222.html)
+[详细介绍](https://blog.csdn.net/wangjiangongchn/article/details/86477386)
+[详细介绍1 (里面有快速失败返回模式) ](https://www.cnblogs.com/leeego-123/p/10820099.html)
 
 ## 利用Filter和springAOP实现记录URL和方法的运行时间
 ### 记录URL运行时间

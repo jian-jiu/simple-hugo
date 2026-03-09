@@ -10,3 +10,6 @@ tags:
 
 ## 图片高清化 面部修复 一键抠图
 [参考](https://v11enp9ok1h.feishu.cn/wiki/QzYswcqoKiXlj7kJIi3c89Lwnnj)
+
+## Tesseract训练识别数字
+[详情](https://blog.csdn.net/soband_xiang/article/details/103808321)

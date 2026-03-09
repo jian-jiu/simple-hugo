@@ -13,3 +13,6 @@ tags:
 
 ## UUID
 [参考1](https://1024tools.com/uuid)
+
+## 天气
+[和风](https://dev.qweather.com/)

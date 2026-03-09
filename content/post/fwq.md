@@ -18,7 +18,12 @@ tags:
 [免费和开源的HTTPS 代理](https://www.mitmproxy.org/)
 
 ## api请求工具
-postman 和 apifox
+- 流行 [postmain](https://editor.csdn.net/md/?articleId=120696786)
+  团队最多3人
+- 免费 [Apifox](https://www.apifox.cn/)
+  不限团队人数
+- [小幺鸡](http://www.xiaoyaoji.cn/)
+  不知道
 
 ## FileZilla FTP,FTPS和SFTP客户端
 [FileZilla官网](https://www.filezilla.cn/)
