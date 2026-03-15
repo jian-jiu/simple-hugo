@@ -9,6 +9,113 @@ tags:
     - js
 ---
 
+
+
+## 集成 websocket 的四种方案
+[详情1](https://www.cnblogs.com/huaixiaonian/p/14030202.html)
+[详情2](https://laowan.blog.csdn.net/article/details/113845879)
+
+### netty
+#### ws连接
+```java
+    public void ConnWebSocketServer() {
+        EventLoopGroup client = new NioEventLoopGroup();
+        try {
+            Bootstrap bootstrap = new Bootstrap();
+            URI wsUri = new URI("ws://119.29.180.139:9503/ws");
+            bootstrap.group(client)
+                    .channel(NioSocketChannel.class)
+                    .handler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        protected void initChannel(SocketChannel ch) {
+                            ChannelPipeline pipeline = ch.pipeline();
+                            pipeline.addLast(new HttpClientCodec());
+                            pipeline.addLast(new HttpObjectAggregator(1024 * 10));
+                            pipeline.addLast("WebSocketClientHandler", new WebSocketClientHandler(WebSocketClientHandshakerFactory.newHandshaker(wsUri,
+                                    WebSocketVersion.V13, null, true, new DefaultHttpHeaders())));
+                            pipeline.addLast(new StringDecoder());
+                            pipeline.addLast(new StringEncoder());
+                        }
+                    });
+            ChannelFuture cf = bootstrap.connect(wsUri.getHost(), wsUri.getPort()).sync();
+            cf.channel().closeFuture().sync();
+        } catch (Exception ignored) {
+        } finally {
+            client.shutdownGracefully();
+        }
+    }
+```
+回调类
+```java
+package com.wisdomsite.socket;
+
+import io.netty.channel.*;
+import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.websocketx.CloseWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketClientHandshaker;
+
+public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> {
+
+    private WebSocketClientHandshaker webSocketClientHandshaker;
+    private ChannelPromise handshakeFuture = null;
+
+    public WebSocketClientHandler(WebSocketClientHandshaker webSocketClientHandshaker) {
+        this.webSocketClientHandshaker = webSocketClientHandshaker;
+    }
+
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) {
+        this.handshakeFuture = ctx.newPromise();
+    }
+
+    /**
+     * 当客户端主动链接服务端的链接后，调用此方法
+     *
+     * @param channelHandlerContext ChannelHandlerContext
+     */
+    @Override
+    public void channelActive(ChannelHandlerContext channelHandlerContext) {
+        Channel channel = channelHandlerContext.channel();
+        // 握手
+        webSocketClientHandshaker.handshake(channel);
+    }
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+
+        // 握手协议返回，设置结束握手
+        if (!this.webSocketClientHandshaker.isHandshakeComplete()) {
+            FullHttpResponse response = (FullHttpResponse) msg;
+            this.webSocketClientHandshaker.finishHandshake(ctx.channel(), response);
+            this.handshakeFuture.setSuccess();
+            return;
+        }
+
+        if (msg instanceof TextWebSocketFrame) {
+            TextWebSocketFrame textFrame = (TextWebSocketFrame) msg;
+            System.out.println(textFrame);
+        }
+
+        if (msg instanceof CloseWebSocketFrame) {
+        }
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+//        System.out.println("WebSocketClientHandler::channelInactive 服务端连接成功");
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        cause.printStackTrace();
+        ctx.channel().close();
+    }
+
+}
+
+```
+
 ## RSA 公钥解密
 版本: "jsencrypt": "3.2.0",
 [原地址](https://www.yht7.com/news/93708)

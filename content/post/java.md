@@ -20,6 +20,9 @@ tags:
 ## private、protected、public和default的区别
 [参考](https://www.cnblogs.com/jingmengxintang/p/5898900.html)
 
+## gradle
+[排除依赖包](https://blog.csdn.net/xktemp/article/details/120670250)
+
 ## VO、DTO、BO、PO、DO、POJO 的概念、区别和用处
 [https://blog.csdn.net/zjrbiancheng/article/details/6253232](https://blog.csdn.net/zjrbiancheng/article/details/6253232)
 
@@ -49,6 +52,8 @@ tags:
 
 [参考](https://blog.51cto.com/leo01/1795447)
 
+## 警告 @SuppressWarnings注解
+[详情](https://blog.csdn.net/Mr_Zhang____/article/details/101939732)
 
 ## 前端参数判断
 [官网](https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#validator-gettingstarted-createproject)
@@ -220,5 +225,35 @@ public static void main(String[] args) {
   clock.stop();
  
   System.out.println(clock.prettyPrint());
+}
+```
+
+## java类的生命周期
+### 类加载顺序
+
+(祖)(父)(自己)类静态代码块 --> (祖)(父)(自己)实例化方法然后构造方法
+
+如果调用静态方法
+
+(祖)(父)类静态代码块 --> (祖)(父)(自己)实例化方法然后构造方法 --> (自己)类静态代码块
+
+结论：如果调用静态方法，静态方法最后执行
+### 注解
+注解被用来修饰一个非静态的void（）方法
+Constructor(构造方法) -> @Autowired(依赖注入) -> @PostConstruct(注释的方法)
+###     @PostConstruct
+被修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次
+通常用来初始化一些操作
+```java
+public void destroy(){
+    System.out.println("类开始加载");
+}
+```
+### @PreDestroy
+被修饰的方法会在服务器销毁Servlet的时候运行，并且只会被服务器执行一次
+通常用来处理一些关闭操作
+```java
+public void destroy(){
+    System.out.println("类即将销毁");
 }
 ```

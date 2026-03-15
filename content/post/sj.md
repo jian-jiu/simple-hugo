@@ -11,6 +11,8 @@ tags:
 
 [中文网](https://lsposed.cn)
 
+[烟雨OTA工具箱](https://www.rainyweb.cn/)
+
 ## 模块
 
 ### 元模块
@@ -56,9 +58,17 @@ tags:
 ## HyperCeiler
 [官网](https://hyperceiler.sevtinge.com)
 [下载](https://github.com/ReChronoRain/HyperCeiler/releases)
+[r1](https://github.com/Aurora-dotcom/HyperCeiler-R1)
+
+## oshape
+[github](https://github.com/xzakota/HyperOShape)
+模块在 飞机
 
 ## HyperLight 液态玻璃 高光样式
 [下载](https://github.com/KiminonawaResa/HyperLight)
+
+## HookVip
+[官网](https://github.com/Xposed-Modules-Repo/top.hookvip.pro)
 
 ### 下面的不知道干嘛的
 
