@@ -18,3 +18,6 @@ tags:
 
 ## 浏览器下载加速
 多线程下载：chrome | edge  ://flags/#enable-parallel-downloading
+
+## js逆向工具 绕过无限Debugger
+[AntiDebug_Breaker](https://github.com/0xsdeo/AntiDebug_Breaker)

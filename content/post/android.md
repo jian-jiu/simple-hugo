@@ -4,7 +4,6 @@ date: 2026-03-09
 slug: android
 categories:
   - 安卓
-  - android
 tags:
   - android
 ---
@@ -26,3 +25,6 @@ tags:
 ## 安卓编译报错
 [# Execution failed for task ‘:app:checkDebugDuplicateClasses‘.
 详情](https://blog.csdn.net/m0_46278918/article/details/107770473)
+
+## 投屏
+ARDC

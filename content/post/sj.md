@@ -9,9 +9,25 @@ tags:
     - 刷机
 ---
 
+
 [中文网](https://lsposed.cn)
 
 [烟雨OTA工具箱](https://www.rainyweb.cn/)
+
+[rom站](https://www.hyperos.fans/zh/devices)
+
+## 手机
+k90pm
+### 屏幕
+OPPOx9也是 ipts
+
+### 电池
+电压 4.53
+额定容量 7420mAh
+典型电容量 7560mAh
+标称电压 3.79
+额定能量 28.13Wh
+典型能量 28.66Wh
 
 ## 模块
 
@@ -36,6 +52,9 @@ tags:
 ### LSPosed
 目前看到最高 1.9.2-it(7469) github Dxandme
 [JingMatrix/LSPosed 1.11.0](https://github.com/JingMatrix/LSPosed/releases)
+
+### TrickyStore
+[仓库](https://github.com/5ec1cff/TrickyStore)
 
 ### Scene
 [9](https://download.omarea.com/#/versions?folder=scene9)
@@ -81,7 +100,21 @@ tags:
 ### magic_mount_rs 为KernelSU 提供 Systemless 修改功能
 [下载](https://github.com/KernelSU-Modules-Repo/magic_mount_rs/)
 
+## lsp模块
+### 隐藏应用列表
+[仓库](https://github.com/Dr-TSNG/Hide-My-Applist/releases)
+
 ## 推荐
 [酷安](https://www.coolapk.com)
 
 爱玩机工具箱(酷安下载)
+
+## usb
+头
+黑(负) 绿(D+) 黄(cc) 白(D-) 红(正)
+尾
+
+## 直供电（test）
+### 重启
+1. 5.5v 法拉电容 10f 以上
+2. 输入线 并联 200uf 电解电容

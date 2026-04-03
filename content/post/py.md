@@ -5,6 +5,7 @@ slug: py
 categories:
     - py
 tags:
+  - python
     - 编程
     - py
 ---
