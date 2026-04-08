@@ -8,6 +8,9 @@ tags:
     - esphome
 ---
 
+## 在线烧录
+https://web.esphome.io/
+
 ## tds
 [参考](https://github.com/JochenZhou/esphome-custom-components)
 

@@ -965,3 +965,15 @@ $.each(需要遍历的数组, function (index(下标), object(每次遍历的内
 
 ## equals
 [参考](https://www.cnblogs.com/javastack/p/13023716.html)
+
+## 人脸
+[参考](https://juejin.cn/post/7000995991927144479)
+
+## 水印
+[微信小程序](https://blog.csdn.net/jinqian_zc/article/details/122344517)
+
+## 动画
+[lax.js](https://juejin.cn/post/7230644271951331386)
+
+## js多继承
+[参考](https://juejin.cn/post/7211358106629750841)

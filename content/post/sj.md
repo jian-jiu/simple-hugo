@@ -118,3 +118,7 @@ OPPOx9也是 ipts
 ### 重启
 1. 5.5v 法拉电容 10f 以上
 2. 输入线 并联 200uf 电解电容
+
+## 其他 
+[吾爱破解参考](https://www.52pojie.cn/thread-1143511-1-1.html)
+[高通9008模式](https://onfix.cn/course/3476)

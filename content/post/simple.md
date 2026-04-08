@@ -159,3 +159,17 @@ ldconfig
 
 ## 区块链
 [参考](https://juejin.cn/post/7049718389836611597)
+
+## DBeaver 数据库驱动
+[参考](https://blog.csdn.net/m0_37034149/article/details/107661354)
+
+## 公共api
+[图片](https://api.yimian.xyz/img?type=wallpaper)
+[图片](https://picsum.photos/800/800)
+
+## pdf
+[itextpdf](https://www.cnblogs.com/fonks/p/15090635.html)
+
+## 网站收藏
+[参考](https://www.meiye.art/)
+

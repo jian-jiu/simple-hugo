@@ -17,6 +17,9 @@ tags:
 ## 后台权限设计
 [参考](https://mp.weixin.qq.com/s/kIT4c-UaW0IzGrNz4Sh8rQ)
 
+## 水印
+[springboot](https://juejin.cn/post/7015168801361068068)
+
 ## Velocity java代码生成
 [基本用法](https://blog.csdn.net/nengyu/article/details/6671904)
 
