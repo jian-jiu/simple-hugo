@@ -977,3 +977,79 @@ $.each(需要遍历的数组, function (index(下标), object(每次遍历的内
 
 ## js多继承
 [参考](https://juejin.cn/post/7211358106629750841)
+
+## echarts双Y轴
+[参考](https://blog.csdn.net/qq_44827865/article/details/107000180)
+
+## 前端cdn 资源访问加速 icons资源
+
+###  cdn
+[jsdelivr](https://www.jsdelivr.com/)
+
+[bootcdn](https://www.bootcdn.cn/)
+
+[cdnjs](https://cdnjs.com/)
+
+### icons
+[阿里云iconfont](https://www.iconfont.cn/)
+[icons8](https://icons8.com/icons/set/popular)
+
+[国内访问拒绝问题](https://juejin.cn/post/7076724865083899935)
+
+## 图片拖拽
+https://github.com/SortableJS/vue.draggable.next/issues/216
+https://vueuse.org/integrations/usesortable/
+
+## axios
+[参考](https://juejin.cn/post/7071518211392405541)
+
+[cdn导入参考](https://docs.pingcode.com/baike/2716819)
+
+## npm pnpm
+# node 多版本管理
+[参考](https://blog.csdn.net/goods_yao/article/details/137854626)
+
+[详情](https://www.jianshu.com/p/9b9166f7559c)
+[换源](https://zhuanlan.zhihu.com/p/572154328)
+
+# pnpm
+
+运行以下命令设置新的存储路径
+```shell
+pnpm config set store-dir <new path> //将<new path> 替换为目标存储路径(非中文)
+```
+3.输入命令验证是否修改成功
+```shell
+pnpm store path
+```
+
+# 换源(npm 和 pnpm 一样)
+```shell
+# 查看源
+pnpm get registry
+pnpm config get registry
+
+# 切换到淘宝镜像
+pnpm config set registry https://registry.npmmirror.com/
+
+# 切换到腾讯云镜像
+http://mirrors.cloud.tencent.com/npm/
+
+# 华为
+https://mirrors.huaweicloud.com/repository/npm
+```
+# 命令
+```sh
+加 -g 为全局
+install 安装
+uninstall 卸载
+update 更新
+
+# 查看全局安装的包
+npm list -g --depth 0
+
+# 依赖包远程信息
+npm into xxx
+
+
+```

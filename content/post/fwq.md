@@ -28,3 +28,41 @@ tags:
 ## FileZilla FTP,FTPS和SFTP客户端
 [FileZilla官网](https://www.filezilla.cn/)
 [介绍连接](https://www.filezilla.cn/features)
+
+## tomcat乱码
+[详细](https://www.cnblogs.com/zeussbook/p/10535120.html)
+
+### 下载txt
+
+conf/web.xml
+
+```js
+<mime-mapping>
+<extension>txt</extension>
+<mime-type>application/txt</mime-type>
+</mime-mapping>
+```
+
+浏览：text/plain
+
+下载：application/txt
+
+iis下载：application/octet-stream
+
+### 浏览目录
+
+<servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+改true

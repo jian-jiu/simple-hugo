@@ -14,7 +14,7 @@ https://juejin.cn/post/7523256725127987226
 
 [官网](https://docs.min.io/)
 
-# win自动启动
+## win自动启动
 minio.bat
 ```bat
 @echo off
@@ -29,6 +29,8 @@ cd /d %~dp0 # 跳转到当前脚本的目录
 
 启动 .\minio.exe server C:\minio --console-address :9000
 
+## yum
+[换源](https://segmentfault.com/a/1190000039099774)
 
 ## 版本区别
 Alpha、Beta、RC、GA版本的区别
@@ -173,3 +175,18 @@ ldconfig
 ## 网站收藏
 [参考](https://www.meiye.art/)
 
+## ipfs
+[网关](https://luke.lol/ipfs.php)
+
+## 十六进制文本编辑器
+[ultraedit](https://www.ultraedit.com/downloads/ultraedit-download-thank-you/)
+
+## 抓包
+### burp suite
+[参考](https://www.52pojie.cn/thread-2005151-1-1.html)
+[参考](https://www.52pojie.cn/thread-1544866-1-1.html)
+[证书](https://www.cnblogs.com/JetpropelledSnake/p/8983676.html)
+[安装与基本使用](https://zhuanlan.zhihu.com/p/115492921)
+
+### httpdebugger
+[官网](https://www.httpdebugger.com/)

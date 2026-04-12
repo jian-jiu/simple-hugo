@@ -21,7 +21,7 @@ tags:
 
 ### 安装
 #### 添加数据库表
-sql在conf文件夹中的nacos-mysql.sql
+**sql在conf文件夹中的**nacos-mysql.sql
 在数据库添加sql nacos需要依赖数据库
 #### 修改配置
 在conf文件夹中application.properties
@@ -41,3 +41,42 @@ D:\Software\nacos\bin\startup.cmd -m standalone
 ```
 
 [访问地址](http://127.0.0.1:8848/nacos)
+
+## 其他
+[换脸](https://www.marsai.top)
+[爬取网站](https://same.new/)
+[AI绘画模型平台](https://civitai.com/)
+[音视频翻译和配音工具](https://github.com/krillinai/KlicStudio)
+
+## 网站ai翻译
+[仓库](https://gitee.com/mail_osc/translate)
+```html
+<script>
+    var head= document.getElementsByTagName('head')[0];
+    var script= document.createElement('script');
+    script.type= 'text/javascript';
+    script.src= 'https://res.zvo.cn/translate/translate.js';
+    script.onload = script.onreadystatechange = function() {
+        translate.selectLanguageTag.show = false;
+        translate.setUseVersion2();
+
+        //translate.ignore.tag.push('small');
+
+        translate.ignore.class.push('ant-card-head');
+        translate.ignore.class.push('inline-block-tight');
+        translate.ignore.class.push('last-keywords');
+        translate.ignore.class.push('ant-table-tbody');
+        translate.ignore.class.push('ant-select-dropdown-menu-item-group-list');
+        translate.ignore.class.push('ant-select-dropdown-menu-vertical');
+        translate.ignore.class.push('ant-select-selection-selected-value');
+
+        translate.changeLanguage('chinese_simplified');
+
+        window.onload = function() {
+            translate.listener.start();
+            translate.execute();
+        };
+    }
+    head.appendChild(script);
+</script>
+```

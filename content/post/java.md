@@ -754,3 +754,77 @@ new一个抽象类，根据需要重写实现方法
 
 ## Accessors
 // @Accessors(chain = true) // 导入不允许使用 会找不到set方法
+
+# 配置环境变量
+JAVA_HOME ——> +安装路径
+
+**path**
+
+%JAVA_HOME%\bin
+
+%JAVA_HOME%\jre\bin
+# 八大数据类型
+
+- ##### byte 字节型
+
+- ##### short 短整型
+
+- ##### int 整型
+
+- ##### long 长整型
+
+
+- ##### float 单精度
+
+- ##### double 双精度
+
+
+- ##### boolean 布尔型
+
+- ##### char 字符型
+
+# 反射获取class
+- 类名.class
+- Class.forName(类名)
+- 通过类对象获取
+- 通过类加载器获取
+# @Inherited注解的作用
+[@Inherited注解的作用](https://www.jianshu.com/p/7f54e7250be3)
+
+# JAVA
+
+volatile 可见性 禁止指令重排序优化
+
+# 双亲委派机制的工作流程：
+
+1. 当前ClassLoader首先从自己已经加载的类中查询是否此类已经加载，如果已经加载则直接返回原来已经加载的类。
+
+每个类加载器都有自己的加载缓存，当一个类被加载了以后就会放入缓存，等下次加载的时候就可以直接返回了。
+
+2. 当前classLoader的缓存中没有找到被加载的类的时候，委托父类加载器去加载，父类加载器采用同样的策略，首先查看自己的缓存，然后委托父类的父类去加载，一直到bootstrp ClassLoader.
+
+3. 当所有的父类加载器都没有加载的时候，再由当前的类加载器加载，并将其放入它自己的缓存中，以便下次有加载请求的时候直接返回。
+
+------
+
+总结：
+
+“双亲委派”机制只是Java推荐的机制，并不是强制的机制。
+
+我们可以继承java.lang.ClassLoader类，实现自己的类加载器。如果想保持双亲委派模型，就应该重写findClass(name)方法；如果想破坏双亲委派模型，可以重写loadClass(name)方法
+
+类装载线程安全
+
+# 泛型
+
+泛型的本质是参数化类型，这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法。
+在 Java SE 1.5 之前没有泛型的情况的下只能通过对类型 Object 的引用来实现参数的任意化，其带来的缺点是要做显式强制类型转换，而这种强制转换编译期是不做检查的，容易把问题留到运行时，
+所以 泛型的好处是在编译时检查类型安全，并且所有的强制转换都是自动和隐式的，提高了代码的重用率，避免在运行时出现 ClassCastException。
+
+## 上传文件问题
+StandardMultipartHttpServletRequest
+parseRequest
+文件上传慢
+
+## java 混淆
+[allatori](https://allatori.com/)

@@ -40,6 +40,12 @@ tags:
 ## 动态增删Controller
 [参考](https://www.cnblogs.com/colin-xun/p/10573504.html)
 
+## 高并发
+[参考1](https://juejin.cn/post/7116916112448552974)
+
+## restTemplate
+[参考](https://juejin.cn/post/6944230767350251551)
+
 ## 事件发布以及注册
 [参考](https://www.cnblogs.com/juncaoit/p/13275339.html)
 
@@ -913,4 +919,348 @@ public class JacksonConfig {
 ```
 [https://blog.csdn.net/qq_37274323/article/details/125926364](https://blog.csdn.net/qq_37274323/article/details/125926364)
 
+[spring boot如何在服务强制关闭之前执行一段程序？](https://www.zhihu.com/question/430805970)
+# SpringBoot一款快速运行部署spring工程框架
 
+@EnableScheduling
+
+@Scheduled
+
+## Application注解
+
+```
+@SpringBootApplication///spring启动注解
+```
+
+```
+//mapper批量扫描，将该包下的接口，批量创建代理对象，交给Spring容器管理
+@MapperScan(basePackages = {"com.bjpowernode.springboot.dao"})
+```
+
+```
+#配置项目名
+server:
+  servlet:
+    context-path: /jiandanjiuer
+```
+
+## 自定义配置
+
+```
+@Configuration
+public class MyMvcConfig implements WebMvcConfigurer {
+
+    /**
+     * 注册环境解析器(语言)
+     *
+     * @return
+     */
+    @Bean
+    public LocaleResolver localeResolver() {
+        return new MyLocaleResolver();
+    }
+
+    /**
+     * 视图控制器
+     *
+     * @param registry
+     */
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/index.html").setViewName("index");
+
+        registry.addViewController("/main.html").setViewName("dashboard");
+
+        registry.addViewController("/404.html").setViewName("404");
+    }
+
+    /**
+     * 拦截器
+     *
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginHandlerInterceptor())
+                //需要拦截的连接
+                .addPathPatterns("/**")
+                //不需要拦截的连接
+                .excludePathPatterns("/index.html", "/", "/user/login", "/css/**", "/js/**", "/img/**");
+    }
+
+}
+```
+
+## 配置文件加载顺序
+
+yml->yaml->properties 后加载的会进行覆盖
+
+获取配置文件内容
+
+类上注解
+
+```
+@ConfigurationProperties(prefix = "custom-config")
+```
+
+属性上注解 @Value("${aList}")
+
+## 多环境配置
+
+spring.profiles.active=***
+
+```
+# 环境切换，指定application-${key}.properties/yml/yaml
+spring.profiles.active=dev
+# 定义test，就会加载application-test.properties配置文件
+```
+
+## 国际化
+
+```
+spring:
+  #国际化
+  messages:
+    basename: i18n.login
+```
+
+resources目录下创建
+
+login.properties login_en_US.properties login_zh_CN.properties
+
+#### 类
+
+```
+public class MyLocaleResolver implements LocaleResolver {
+
+    /**
+     * 解析请求
+     *
+     * @param httpServletRequest
+     * @return
+     */
+    @Override
+    public Locale resolveLocale(HttpServletRequest httpServletRequest) {
+
+        String myLocale = httpServletRequest.getParameter("locale");
+
+        Locale locale = Locale.getDefault();
+
+        if (!(StringUtils.isEmpty(myLocale))) {
+            httpServletRequest.setAttribute("Locale", myLocale);
+            String[] s = myLocale.split("_");
+            locale = new Locale(s[0], s[1]);
+        }
+
+        return locale;
+    }
+
+    @Override
+    public void setLocale(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Locale locale) {
+
+    }
+}
+```
+
+## 配置启动图标
+
+文件名：banner.txt
+
+配置窗口图标
+
+## 端口配置
+
+```
+server:
+  port: 80
+```
+
+## 自动装配原理
+
+## 主程序
+
+```
+@SpringBootConfiguration    :springboot的配置
+    @Configuration    :spring配置类
+    @Component    ：声明这是一个spring组件
+
+
+@EnableAutoConfiguration    ：自动配置
+    @AutoConfigurationPackage    ：自动配置包
+        @Import({Registrar.class})    ：自动配置包注册
+    @Import({AutoConfigurationImportSelector.class})    ：自动配置导入选择
+```
+
+## 多环境配置
+
+```
+spring:
+  profiles:
+    active: test  application-test.yaml
+```
+
+利用 --- 可以分文件
+
+```
+给---文件起别名
+spring:
+  profiles: test
+```
+
+## 关于springboot低层注解
+
+## mybaits
+
+```
+#mybatis
+mybatis:
+  mapper-locations: classpath*:com/simple/mapper/*/*.xml
+```
+
+```
+@MapperScan(basePackages = {"com.simple.dao.user", "com.simple.dao.loan"})
+```
+
+#### 事务
+
+```
+//自动配置默认开启
+//如果没有开启事务，事务失效，手动开启。
+//在引导类上添加注解，@EnableTransactionManagement
+```
+
+```
+//@Transactional可以修饰到类上也可以修饰到方法上
+```
+
+##  枚举转换问题
+[参考](https://blog.csdn.net/qq_33306246/article/details/106933613)
+[参考](https://blog.csdn.net/weixin_41249041/article/details/96764460)
+
+## 分词器
+[参考1](https://zhuanlan.zhihu.com/p/377433737)
+[参考2](https://blog.csdn.net/wpc2018/article/details/121156880)
+[参考3](https://cloud.tencent.com/developer/article/1862954)
+[参考4](https://blog.csdn.net/weixin_40612128/article/details/123476287)
+[参考5](https://blog.csdn.net/qq_39140300/article/details/110382612)
+
+## Canal 数据库 数据 订阅
+[docker 安装参考](https://blog.csdn.net/qq_34497272/article/details/117658964)
+
+## Elasticsearch es
+[ik_max_word和 ik_smart的区别](https://blog.csdn.net/weixin_44062339/article/details/85006948)
+
+[analyzer 和 search_analyzer 的区别 参考1](https://blog.joylau.cn/2019/01/24/Elasticsearch-Analyzer/)
+[analyzer 和 search_analyzer 的区别 参考2](https://blog.csdn.net/qq_39552268/article/details/118330953)
+
+[pinyin搜索，对应中文没有高亮显示](https://blog.csdn.net/qq_40293993/article/details/118607411)
+
+## 商品 搜索 数据 同步
+[参考](https://zhuanlan.zhihu.com/p/602613483)
+[canal参考](https://zhuanlan.zhihu.com/p/177001630)
+
+## gitee 流水线
+```yml
+version: '1.0'
+name: pipeline-20250402
+displayName: simple
+triggers:
+  trigger: auto
+  push:
+    branches:
+      prefix:
+        - ''
+stages:
+  - name: stage-67d1036f
+    displayName: 构建
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: build@nodejs
+        name: build_nodejs
+        displayName: Nodejs 构建
+        nodeVersion: 21.5.0
+        commands:
+          - '# 设置NPM源，提升安装速度'
+          - npm config set registry https://registry.npmmirror.com
+          - ''
+          - npm -v
+          - ''
+          - pnpm -v
+          - ''
+          - echo '-------------------------------------------'
+          - ''
+          - '# 安装 pnpm'
+          - npm install -g pnpm
+          - ''
+          - pnpm install
+          - ''
+          - pnpm store path
+          - ''
+          - pnpm root
+          - ''
+          - pnpm run build:antd
+          - ''
+        artifacts:
+          - name: dist_zip
+            path:
+              - ./apps/web-antd/dist.zip
+        caches:
+          - ~/.npm
+          - ~/.yarn
+          - ~/.pnpm
+          - /root/workspace/.pnpm-store
+        notify: []
+        strategy:
+          retry: '0'
+  - name: stage-1c6c1187
+    displayName: 发布
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: deploy@agent
+        name: deploy_agent
+        displayName: 主机部署
+        hostGroupID:
+          ID: test
+          hostID:
+            - 9ddc654c-2206-4824-9e3b-9fa2229b358c
+        deployArtifact:
+          - source: build
+            name: output
+            target: /www/wwwroot/simple
+            dependArtifact: dist_zip
+        script:
+          - cd /www/wwwroot/simple
+          - ''
+          - pwd
+          - ''
+          - shopt -s extglob
+          - rm -rf !(404.html|.htaccess|.user.ini|output.tar.gz)
+          - ''
+          - tar zxvf ./output.tar.gz
+          - ''
+          - rm -rf ./output.tar.gz
+          - ''
+          - unzip dist.zip
+          - ''
+        notify: []
+        strategy:
+          retry: '0'
+strategy:
+  blocking: true
+  cloneDepth: 1
+
+```
+
+## 数据压缩比json好
+[protobuf](https://blog.csdn.net/wxw1997a/article/details/116755542)
+
+## 项目监控
+[Sentry](https://cloud.tencent.com/developer/article/1786774)
+
+## k8s
+[参考](https://sealos.io/zh-Hans/docs/Intro)

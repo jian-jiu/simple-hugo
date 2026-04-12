@@ -20,6 +20,8 @@ tags:
 
 ## clion
 ### platformio
+[platformio](https://www.bilibili.com/video/BV15x4y1W7Dq)
+
 安装python
 ```shell
 pip install platformio

@@ -28,3 +28,43 @@ tags:
 
 ## 投屏
 ARDC
+
+## Android Studio
+## 工具下载
+[地址](https://developer.android.google.cn/studio)
+## 插件下载
+[地址](https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----/versions/stable)
+
+## 下载慢问题
+[参考](https://blog.csdn.net/BG1230521/article/details/136605382)
+[参考](https://blog.csdn.net/m0_63070489/article/details/136382231)
+[参考](https://blog.csdn.net/qq_57474766/article/details/132644097)
+
+## 最小apk
+[参考](https://raiseyang.github.io/post/zui-xiao-apk-bian-yi-shi-zhan/)
+
+## 打包
+[参考](https://blog.csdn.net/qq_38436214/article/details/112288954)
+## 提高下载速度
+
+修改build.gradle
+```gradle
+buildscript {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha13'
+    }
+}
+allprojects {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```

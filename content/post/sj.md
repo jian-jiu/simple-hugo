@@ -122,3 +122,72 @@ OPPOx9也是 ipts
 ## 其他 
 [吾爱破解参考](https://www.52pojie.cn/thread-1143511-1-1.html)
 [高通9008模式](https://onfix.cn/course/3476)
+
+## twrp
+
+[ADB 调试手机的三种方式（USB、WLAN、WIFI）](https://cloud.tencent.com/developer/article/1809910)
+
+### twrp下载地址
+[https://twrp.me/Devices](https://twrp.me/Devices)
+
+### 其他
+[吾爱破解参考](https://www.52pojie.cn/thread-1143511-1-1.html)
+[高通9008模式](https://onfix.cn/course/3476)
+
+### Ubuntu 镜像
+mount -o remount rw /
+
+[参考](https://developer.aliyun.com/mirror/ubuntu)
+```
+deb https://mirrors.aliyun.com/ubuntu/ xenial main
+deb-src https://mirrors.aliyun.com/ubuntu/ xenial main
+
+deb https://mirrors.aliyun.com/ubuntu/ xenial-updates main
+deb-src https://mirrors.aliyun.com/ubuntu/ xenial-updates main
+
+deb https://mirrors.aliyun.com/ubuntu/ xenial universe
+deb-src https://mirrors.aliyun.com/ubuntu/ xenial universe
+deb https://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+deb-src https://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+
+deb https://mirrors.aliyun.com/ubuntu/ xenial-security main
+deb-src https://mirrors.aliyun.com/ubuntu/ xenial-security main
+deb https://mirrors.aliyun.com/ubuntu/ xenial-security universe
+deb-src https://mirrors.aliyun.com/ubuntu/ xenial-security universe
+```
+
+### 小米4
+根目录扩容
+```shell
+#!/bin/sh
+
+# 此脚本会调整手机的根分区大小，请小心。
+
+echo "调整根分区的大小，这可能需要一些时间。。。"
+echo "完成后，它将重新启动设备，确保您没有丢失任何工作！"
+
+cd /userdata
+echo "创建新的磁盘映像 4096"
+dd bs=1M count=6144 if=/dev/zero of=system2.img
+#这可能需要一段时间, put the kettle on
+
+#mount it as a loopback device
+losetup -f --show system2.img
+#copy from existing loopback to current one
+dd if=/dev/loop0 of=/dev/loop2
+
+echo "然后调整我们新设备上的文件系统大小。这可能会发出警告，接受它"
+e2fsck -f /dev/loop2
+resize2fs /dev/loop2
+
+echo "现在把我们的新形象换成旧形象"
+mv system.img system.old
+mv system2.img system.img
+
+reboot
+
+echo "享受你的新 / space"
+df -h
+#清理旧文件
+rm /userdata/system.old
+```

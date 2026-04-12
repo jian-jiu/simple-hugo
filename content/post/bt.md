@@ -32,3 +32,16 @@ https://gcore.jsdelivr.net/gh/XIU2/TrackersListCollection@master/best.txt
 
 ## 其他
 [恶意bt处理](https://docs.qq.com/doc/DQnJBTGJjSFZBR2JW)
+
+## 搜索
+[看列表](https://iknowwhatyoudownload.com/en/peer/)
+
+## SkrBT
+[中文站点](https://skrbt.sodanav.com/)
+
+[SkrBT](https://skrbtun.top/)
+
+### BTDigg
+[中文站点](https://bidigg.2rdh.com/)
+
+[BTDigg](https://btdig.com/)

@@ -48,3 +48,70 @@ tags:
 ## vite 按需引入
 [参考1](https://juejin.cn/post/7012446423367024676)
 [参考2](https://www.xiaoboy.com/topic/202109180735.html)
+
+## 全局登陆弹窗
+[参考](https://blog.csdn.net/HelloWorldLJY/article/details/124844422)
+
+## VUE2 弹窗组件实现动态挂载
+需要在某些页面中动态加载一个弹窗，比如未登录的时候，在点击某些地方，需要弹出登录框要求登录。
+
+如果在每个页面都import进去未免太过繁琐，在根页面引入后监听也不咋好的感觉。
+
+因此，可以使用VUE.extend动态挂在组件。以登录框组件为例：
+
+首先，自然是要一个登录组件页面，login.vue，这个按照自己的需求写就行了。
+
+然后，新建login.js，代码如下：
+```
+import Vue from "vue";
+import login from "./login.vue";
+import store from "../../store";
+const PopupBox = Vue.extend(login);
+let instance;
+login.install = function(data) {
+  instance = new PopupBox({
+    data
+  }).$mount();
+  instance.$store = store;
+  document.body.appendChild(instance.$el);
+ 
+  Vue.nextTick(() => {
+    instance.showLogin();
+  });
+};
+login.unInstall = function() {
+  if (instance) {
+    document.body.removeChild(instance.$el);
+    instance.$destroy();
+    instance = null;
+  }
+};
+export default login;
+```
+之后，在main.js里加入：
+```
+import login from "./components/Login/login";
+Vue.prototype.$login = login;
+```
+这个时候，就可以在有需要的地方，使用install()来挂在弹框：
+```
+this.$login.install();
+```
+在需要关闭弹框的地方，就用：
+```
+this.$login.unInstall();
+```
+还可以往组件传参，比如要传一个id：
+```
+ instance = new PopupBox({
+    propsData:{
+      id:id
+   }
+  }).$mount();
+ ```
+这样在登录组件里，id就是props的存在啦~或者之间用data覆盖。
+
+[纯js调用公共组件弹框弹窗](https://www.jianshu.com/p/b6f7d004d418)
+
+## setup 和 tsx
+[参考](https://juejin.cn/post/7282692088016437307)

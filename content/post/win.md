@@ -52,14 +52,22 @@ C:\WINDOWS\system32\drivers\etc
 [https://www.zhihu.com/question/19820075](https://www.zhihu.com/question/19820075)
 
 ## 哈希值 md5
+[不要再使用md5](https://zhuanlan.zhihu.com/p/27335023)
 ```shell
 Get-FileHash 文件 md5(可选)
 ```
 
 ## hyper-v创建win11虚拟机
+[参考](https://www.bilibili.com/video/BV11QBfBKEwQ)
+网络不连接
 安全 设置 启用受信任的平台模块
-硬盘顺序可能要修改一下
-启动后提示要【操作】【ctrl alt delete】 然后要多等等
+1. 启动按回车
+2. 硬盘顺序可能要修改一下
+ 启动后提示要【操作】【ctrl alt delete】 然后要多等等
+
+## 跳过验证
+联网界面按快捷键 Shift+F10
+输入 start ms-cxh:localonly 按回车
 
 ## 命令行编码
 [参考](https://blog.csdn.net/qq_39715000/article/details/125853042)
@@ -124,3 +132,33 @@ netsh int ipv4 set dynamicportrange tcp start=49152 num=16384
 set ws=wscript.createobject("wscript.shell")
 ws.run "D:\Programme\must\minio\minio.bat",0
 ```
+
+## cpu 超频
+[参考](https://www.intel.com/content/www/us/en/download/17881/intel-extreme-tuning-utility-intel-xtu.html)
+
+## nmap(网络测试工具)
+```shell
+nmap -Pn --script ssl-enum-ciphers -p 443 113.104.126.249
+pause
+```
+
+## 同步文件
+[Syncthing参考](https://www.cnblogs.com/jackadam/p/8568833.html#%E4%B8%89%EF%BC%9A%E5%9C%A8windows%E4%B8%AD%E5%AE%89%E8%A3%85)
+
+## 远程观看
+[SyncPlay 参考](https://blog.csdn.net/xjl456852/article/details/130517470)
+
+## Aria2
+[参考](https://blog.csdn.net/qq_55058006/article/details/115570993)
+下载配置
+/var/apps/aria2/shares/Download
+
+## idm 下载器
+[参考](https://blog.csdn.net/qq_61621323/article/details/141061544)
+
+[参考](https://zhuanlan.zhihu.com/p/430535305)
+
+## 压缩工具
+[rar弹窗](https://zhuanlan.zhihu.com/p/680852417)
+[推荐 7-zip](https://www.7-zip.org/download.html)
+![参考](https://cdn.242499.xyz/2026/04/12/02d56296ead3a25d75a51c8cfcfe3c7e.jpeg)

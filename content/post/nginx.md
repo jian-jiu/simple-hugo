@@ -151,4 +151,157 @@ http {
     #}
 }
 ```
-# [设置gzip压缩](https://www.cnblogs.com/Renyi-Fan/p/11047490.html)
+## [设置gzip压缩](https://www.cnblogs.com/Renyi-Fan/p/11047490.html)
+
+## web管理（部署后自带nginx无需自己部署）
+[nginxwebui](https://www.nginxwebui.cn/)
+[nginxproxymanager](https://nginxproxymanager.com/)
+
+# 配置文件
+检测
+docker exec nginx nginx -t
+加载
+docker exec nginx nginx -s reload
+
+# nginx之location（root/alias）
+[参考](https://www.cnblogs.com/sunjiguang/p/6227518.html)
+
+```shell
+upstream kuaifuzhi{
+	server 127.0.0.1:8888 down;
+	server 127.0.0.1:8889 ;
+}
+
+####################   负载均衡（实现前端修改代码不间断运行）   ####################
+server {
+	listen       8888;
+	server_name  127.0.0.1;
+	
+	location / {
+		root   /static/simplevue8888;
+		index  index.html index.htm;
+		try_files $uri $uri/ /index.html;
+	}
+
+	location /prod-api/{
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header REMOTE-HOST $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://119.23.211.46:8080/;
+	}
+
+	location /dev-api/{
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header REMOTE-HOST $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://119.23.211.46:8080/;
+	}
+	
+	error_page   500 502 503 504  /50x.html;
+	location = /50x.html {
+		root   html;
+	}
+}
+
+server {
+	listen       8889;
+	server_name  127.0.0.1;
+	
+	location / {
+		root   /static/simplevue8889;
+		index  index.html index.htm;
+		try_files $uri $uri/ /index.html;
+	}
+
+	location /prod-api/{
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header REMOTE-HOST $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://119.23.211.46:8080/;
+	}
+
+	location /dev-api/{
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header REMOTE-HOST $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://119.23.211.46:8080/;
+	}
+	
+	error_page   500 502 503 504  /50x.html;
+	location = /50x.html {
+		root   html;
+	}
+}
+
+```
+
+```shell
+####################   kuaifuzhi.com   ####################
+server {
+	listen       80;
+	server_name  kuaifuzhi.com;
+	return 301 https://$server_name$request_uri;
+}
+server {
+	listen       443 ssl http2;
+	server_name  kuaifuzhi.com;
+	
+	ssl_certificate      /etc/nginx/https/kuaifuzhi.com/full_chain.pem;
+	ssl_certificate_key  /etc/nginx/https/kuaifuzhi.com/private.key;
+	ssl_session_timeout 5m;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_prefer_server_ciphers on;
+
+	#开启和关闭gzip模式
+	gzip on;
+	#gizp压缩起点，文件大于1k才进行压缩
+	gzip_min_length 1k;
+	# gzip 压缩级别，1-9，数字越大压缩的越好，也越占用CPU时间
+	gzip_comp_level 6;
+	# 进行压缩的文件类型。application/vnd.ms-fontobject开始为字体类型
+	gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/xml text/javascript application/json image/png image/gif image/jpeg application/vnd.ms-fontobject font/ttf font/x-woff image/svg+xml;
+	#nginx对于静态文件的处理模块，开启后会寻找以.gz结尾的文件，直接返回，不会占用cpu进行压缩，如果找不到则不进行压缩
+	# gzip_static on|off
+	# 是否在http header中添加Vary: Accept-Encoding，建议开启
+	gzip_vary on;
+	# 设置压缩所需要的缓冲区大小，以4k为单位，如果文件为7k则申请2*4k的缓冲区 
+	# 缓冲(压缩在内存中缓冲几块? 每块多大?)
+	gzip_buffers 32 4k;
+	# 设置gzip压缩针对的HTTP协议版本，默认1.1
+	#	gzip_http_version 1.1;
+	#配置禁用gzip条件，支持正则。此处表示ie6及以下不启用gzip（因为ie低版本不支持）
+	gzip_disable "MSIE [1-6]\.";
+
+	location / { # 指定上游服务器负载均衡服务器
+		proxy_pass http://kuaifuzhi;
+		index  index.html index.htm;
+	}
+	
+	location ~ .*.simplescript.* {
+		root /static;
+	}
+
+	location ~ .*.simple.* {
+		root /static;
+	}
+	
+#	location ~ .*\.(js|css|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma|apk) {
+#		root /static;
+#	}
+
+	location ~ .*dny001.*\.pdf {
+		valid_referers none blocked *.kuaifuzhi.com kuaifuzhi.com;
+		if ($invalid_referer) {
+			#防盗链
+			return 404;
+			break;
+		}
+		root /static;
+	}
+}
+```

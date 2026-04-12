@@ -60,3 +60,24 @@ whustle
 
 ## Navicat 数据库
 [oracle连接问题参考](https://blog.csdn.net/qq_38974638/article/details/115069664)
+
+## 文件对比工具下载
+[Beyond Compare 5](https://www.beyondcomparepro.com/download)
+
+## 其他
+
+[Spring Boot自定义启动Banner在线生成工具](https://www.bootschool.net/ascii)
+[生成guid](https://www.guidgen.com/)
+
+视频工具 handbrake
+
+[哔哩哔哩视频下载](https://bilibili.iiilab.com/)
+[免费会员视频](https://www.fenxiangdashi.com/)
+[下载加速](https://kinhdown.kinh.cc/)
+
+[极简插件](https://chrome.zzzmh.cn/)
+
+[破解软件下载](https://ldqk.xyz/)
+
+[win截屏工具(snipaste)](https://zh.snipaste.com/)
+[对比工具（beyondcomparepro）](https://www.beyondcomparepro.com/download)
