@@ -12,6 +12,8 @@ tags:
 
 [浏览器内核下载](https://www.apkmirror.com/apk/google-inc/android-system-webview/)
 
+[Crx搜搜 - 一个牛X的扩展和应用商店](https://www.crxsoso.com/)
+
 ## 摄像头webrtc mediarecorder
 [使用参考](https://cloud.tencent.com/developer/article/1907805)
 [参考](https://blog.csdn.net/qq_34996079/article/details/121604663)
@@ -21,3 +23,6 @@ tags:
 
 ## js逆向工具 绕过无限Debugger
 [AntiDebug_Breaker](https://github.com/0xsdeo/AntiDebug_Breaker)
+
+## UserAgent分析和查询
+https://tool.ip138.com/useragent/

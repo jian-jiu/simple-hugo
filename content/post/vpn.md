@@ -8,6 +8,8 @@ tags:
     - vpn
 ---
 
+[统一订阅管理](https://github.com/sub-store-org/Sub-Store)
+
 ## act
 [视频](https://www.youtube.com/@am_clubs)
 

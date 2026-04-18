@@ -14,9 +14,6 @@ tags:
 
 [Grid 网格布局](https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
 
-## unocss
-[uniapp 参考](https://juejin.cn/post/7259586263247863865)
-
 ### 图表
 [参考](https://xiaoshen.blog.csdn.net/article/details/134333070)
 [仓库](https://github.com/Sjj1024/uniapp-vue3)

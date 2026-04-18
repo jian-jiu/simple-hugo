@@ -18,12 +18,11 @@ tags:
 [下载地址](https://wwsa.lanzoue.com/b0z0st1i)
 
 ### 直接下载(有可能失效)
-
 [链接1(cdn)](https://cdn.242499.xyz/ld.apk)
 
-[链接2(openlist)](https://list.242499.xyz/openlist/ld/%E5%9B%A2%E5%AD%90LD.apk)
+[链接2(openlist)](https://list.242499.xyz/ld/%E5%9B%A2%E5%AD%90LD.apk)
 
-[链接3(nas)](https://share.fnnas.net/s/4d1629188ab640e79d)
+[链接3(nas)](https://share.fnnas.net/s/eacbe72d7a9a4c9a8b)
 
 ### qq群文件下载安装
 [点击链接加入群聊](https://qm.qq.com/q/m36hHlye7S)

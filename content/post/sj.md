@@ -18,6 +18,7 @@ tags:
 
 ## 手机
 k90pm
+https://www.123865.com/s/NZ8uVv-N4EpH?notoken=1
 ### 屏幕
 OPPOx9也是 ipts
 

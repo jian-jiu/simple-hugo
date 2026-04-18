@@ -31,6 +31,9 @@ jetbra目录，编辑 config-jetbrains\url.conf 文件
 
 [使用ja-netfilter](https://www.nite07.com/jetbrains/)
 
+## 热更新的Intellij插件
+https://github.com/gejun123456/HotSwapHelper/blob/master/README_CN.md
+
 ## 必要设置
 
 增加idea内存 帮助 -> 更改内存设置 -> 4096 6148

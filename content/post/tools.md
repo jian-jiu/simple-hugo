@@ -14,6 +14,10 @@ tags:
 
 [motrix-next](https://github.com/AnInsomniacy/motrix-next/releases/tag/v3.5.1)
 
+[在线免费下载视频、音频和图片](https://snapwc.com/zh)
+[在线免费下载视频、音频和图片 库推荐](https://github.com/yt-dlp/yt-dlp)
+
+
 ## UUID
 [参考1](https://1024tools.com/uuid)
 
@@ -30,6 +34,24 @@ whustle
 [屏幕测试](http://testufo.com/)
 [aida64](https://www.aida64.com/downloads)
 [cpu-z](https://www.cpuid.com/)
+
+## 文本对比
+https://www.diffchecker.com/zh-Hans/
+
+## cron 在线表达式生成器
+https://cron.ciding.cc/
+
+## 二维码在线生成
+https://www.liantu.com/
+
+## json
+https://www.json.cn/
+
+## 在线视频下载
+https://www.datatool.vip/
+
+## 大全
+https://uutool.cn/header2json/
 
 ## 视频播放器
 [potplayer](http://potplayer.tv/?lang=zh_CN)

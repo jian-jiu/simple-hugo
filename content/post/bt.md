@@ -12,6 +12,7 @@ tags:
 ---
 
 ## tracker
+https://trackerslist.com/#/zh
 ```shell
 https://github.com/XIU2/TrackersListCollection
 https://cdn.jsdelivr.net/gh/ngosang/trackerslist/trackers_best.txt

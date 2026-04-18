@@ -17,6 +17,9 @@ tags:
 
 [免费和开源的HTTPS 代理](https://www.mitmproxy.org/)
 
+## 服务器监控
+https://www.beszel.dev/zh/
+
 ## api请求工具
 - 流行 [postmain](https://editor.csdn.net/md/?articleId=120696786)
   团队最多3人
