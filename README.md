@@ -15,6 +15,11 @@ hugo version
 hugo server -D
 ```
 
+## 构建命令
+```shell
+hugo --gc --minify
+```
+
 ```
 ---
 title: 标题
