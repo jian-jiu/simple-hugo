@@ -9,6 +9,10 @@ tags:
   - nas
 ---
 
+## Yunzai 云崽
+https://github.com/TimeRainStarSky/Yunzai
+[外置渲染](https://x406.cn/posts/d7178a05/)
+
 ## 网络配置
 
 ### bot用

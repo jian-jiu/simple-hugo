@@ -192,3 +192,20 @@ df -h
 #清理旧文件
 rm /userdata/system.old
 ```
+
+## 小米4
+https://github.com/ubports/ubports-installer
+[Ubuntu-touch](https://www.bilibili.com/read/cv23015045/?opus_fallback=1)
+[小米6](https://www.cnblogs.com/qsbye/p/16538241.html)
+https://blog.csdn.net/weixin_43381677/article/details/122710883
+[小米4 ubuntu-touch](https://www.bilibili.com/read/cv20592315/?opus_fallback=1)
+
+## postmarketos
+https://wiki.postmarketos.org/wiki/Main_Page
+https://gitlab.postmarketos.org/postmarketOS/pmbootstrap
+https://www.bilibili.com/read/cv36554523/?opus_fallback=1
+https://yzddmr6.com/posts/android-run-docker/
+[小米6](https://www.cnblogs.com/x383494/p/18304008)
+
+## mt管理器
+[论坛](https://bbs.binmt.cc/)

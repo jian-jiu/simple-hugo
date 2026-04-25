@@ -1,7 +1,7 @@
 ---
-title: 低功耗太阳能
+title: 锂电池
 date: 2026-02-25
-description: 使用bq25504获取低功耗的太阳能能量
+description: 锂电池
 slug: bq25504
 categories:
     - 锂电池
@@ -11,6 +11,10 @@ tags:
     - 锂电池
     - bq25504
 ---
+
+## 内阻测试仪
+t459
+https://www.mydigit.cn/forum.php?mod=viewthread&tid=564069
 
 ## BQ25504电压计算器
 [BQ25504电压计算器.html](/bq25504/BQ25504电压计算器.html "_blank")

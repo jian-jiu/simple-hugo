@@ -10,7 +10,7 @@ tags:
 ---
 
 [icon](https://www.iconfont.cn/collections/detail?cid=24432)
-[icon 推荐库](https://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.dc64b3430&cid=24432)
+[icon 推荐库](https://www.iconfont.cn/collections/detail?cid=24432)
 
 [nutui](https://nutui.jd.com/3x/#/zh-CN/component/button)
 

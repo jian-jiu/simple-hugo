@@ -30,6 +30,10 @@ qaab
 ### cdn(未测试)
 [推荐](https://www.right.com.cn/FORUM/thread-8414099-1-1.html)
 
+## 小米盒子4C
+[视频教程](https://www.bilibili.com/video/BV1cm42177xa)
+
+
 ## 小米盒子教程Armbian
 
 ### Armbian

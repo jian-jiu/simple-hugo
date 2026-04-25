@@ -10,6 +10,8 @@ tags:
     - 飞牛
 ---
 
+[论坛](https://club.fnnas.com/)
+
 使用的是【apt】包管理器
 
 ## wifi
@@ -79,6 +81,7 @@ echo "ok"
 
 ## 蓝牙
 ```shell
+apt install bluez bluez-tools
 # 进入bluetooth命令行交互模式
 bluetoothctl
 # 列出设备及其mac地址
@@ -92,9 +95,6 @@ exit
 [docker部署Clash与yacd](https://club.fnnas.com/forum.php?mod=viewthread&tid=11682&highlight=)
 [图形化V2Ray面板搭建透明代理服务](https://club.fnnas.com/forum.php?mod=viewthread&tid=33301&highlight=)
 [群晖docker安装dreamacro/clash + haishanh/yacd面板](https://swihp.cn/?id=1432)
-
-## iStoreOS
-[passwall](https://shdvgj.github.io/2023/07/06/2023/07/bridge-mode-starter-istoreos)
 
 ## 青龙面板1
 [参考](https://blog.csdn.net/m0_51309390/article/details/124447642)
