@@ -190,3 +190,11 @@ ldconfig
 
 ### httpdebugger
 [官网](https://www.httpdebugger.com/)
+
+## 流量卡 手机卡
+[172号卡](https://haoka.lot-ml.com/login.html)
+[卡世界](https://ksjhaoka.com/#/login)
+
+## ocr
+https://github.com/equationl/paddleocr4android
+[PaddleOCR](https://juejin.cn/post/7135653114773766174)

@@ -162,3 +162,10 @@ pause
 [rar弹窗](https://zhuanlan.zhihu.com/p/680852417)
 [推荐 7-zip](https://www.7-zip.org/download.html)
 ![参考](https://cdn.242499.xyz/2026/04/12/02d56296ead3a25d75a51c8cfcfe3c7e.jpeg)
+
+## cpu
+[z790](https://rog.asus.com.cn/motherboards/rog-strix/rog-strix-z790-a-gaming-wifi-d4-model/helpdesk_bios/)
+
+[i713700k](https://www.intel.cn/content/www/cn/zh/products/sku/230500/intel-core-i713700k-processor-30m-cache-up-to-5-40-ghz/specifications.html)
+[显卡](https://www.intel.cn/content/www/cn/zh/support/products/80939/graphics.html)
+[13/14代超频](https://www.bilibili.com/read/cv29457601/?opus_fallback=1)
