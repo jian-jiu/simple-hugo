@@ -135,8 +135,8 @@ got问题  nodejs 需要依赖 got@11
 ```js
 // =======================================自定义通知设置区域===========================================
 const push_config = {
-    WEBHOOK_URL: 'http://172.18.0.5:3000/send_private_msg', // 自定义通知 请求地址
-    WEBHOOK_BODY: 'message:$title$content\nuser_id:2424585654', // 自定义通知 请求体
+    WEBHOOK_URL: 'http://192.168.0.1:3000/send_private_msg', // 自定义通知 请求地址
+    WEBHOOK_BODY: 'message:$title$content\nuser_id:xxx', // 自定义通知 请求体
     WEBHOOK_HEADERS: '', // 自定义通知 请求头
     WEBHOOK_METHOD: 'POST', // 自定义通知 请求方法
     WEBHOOK_CONTENT_TYPE: 'application/json', // 自定义通知 content-type

@@ -7,22 +7,6 @@ tags:
     - hugo
 ---
 
-## hugo md头
-```md
-
----
-title: 标题
-description: 描述
-date: 2026-02-25
-slug: url
-categories:
-    - hugo
-tags:
-    - hugo
----
-
-```
-
 ## hugo常用命令
 
 [参考](https://xxcjw.github.io/p/hugo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/)

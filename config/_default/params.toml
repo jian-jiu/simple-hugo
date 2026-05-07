@@ -20,9 +20,14 @@ favicon        = "img/avatar.png"
     page     = [{ type = "toc" }]
 
 [comments]
-    # 请参阅中的完整配置 config/_default/params.toml
-    enabled  = false
-    provider = "disqus"
+    # 请参阅主题模块中的完整配置 config/_default/params.toml
+    enabled  = true
+    provider = "utterances"
+
+    [comments.utterances]
+        repo      = "jian-jiu/simple-hugo"
+        issueTerm = "pathname"
+        label     = "💬评论"
 
 # GDPR Cookie同意配置
 # 启用后，分析和功能Cookie需要用户同意

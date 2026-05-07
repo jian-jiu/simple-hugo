@@ -20,7 +20,7 @@ https://github.com/TimeRainStarSky/Yunzai
 - 类型: Websocket客户端
 - URL: ws://192.168.1.33:6199/ws
 - 消息格式: array
-- Token: 2424585654
+- Token: xxx
 
 ### ql用
 - 名称: ql

@@ -1,7 +1,7 @@
-baseURL      = "https://example.org/"
-languageCode = "zh-CN"
-title        = "团子丶大家族"
-theme = 'hugo-theme-stack'
+baseURL = "https://example.org/"
+locale  = "zh-CN"
+title   = "团子丶大家族"
+theme   = 'hugo-theme-stack'
 
 # Theme i18n support
 # See i18n folder for available languages

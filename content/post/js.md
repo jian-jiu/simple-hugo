@@ -1053,3 +1053,15 @@ npm into xxx
 
 
 ```
+
+
+## 分片
+[对于大于5GB的文件，如何计算Amazon-S3 Etag的算法是什么](https://qastack.cn/programming/12186993/what-is-the-algorithm-to-compute-the-amazon-s3-etag-for-a-file-larger-than-5gb)
+
+[web-worker的基本用法并进行大文件切片上传](https://zhuanlan.zhihu.com/p/689680421)
+
+[前端分片上传大文件（支持1G以上的超大文件）](https://blog.csdn.net/weixin_43726152/article/details/136722114)
+[参考1](https://github.com/LIAOJIANS/file-web-worker/blob/main/src/File.vue)
+[参考2](https://github.com/tus/tus-java-client)
+[Uppy 是一款流畅、模块化的 JavaScript 文件上传器](https://github.com/transloadit/uppy)
+[参考3](https://www.elibaron.com/arch/minio/minio-seconds-upload.html#_2-1-%E6%90%AD%E5%BB%BA%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE)
