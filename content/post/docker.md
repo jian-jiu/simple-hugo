@@ -8,6 +8,8 @@ tags:
     - docker
 ---
 
+[Webtop 浏览器的Linux桌面环境](https://zhuanlan.zhihu.com/p/1984562670469396019)
+
 ## 下载慢
 [地址1](https://status.1panel.top/)
 [地址2](https://status.anye.xyz/)
@@ -164,6 +166,12 @@ apt update
 apt-cache policy docker-ce
 # 安装 Docker
 apt install docker-ce
+
+# 方法2
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o docker.gpg
+sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 ```
 # 基本操作
 和[linux服务命令](https://blog.csdn.net/weixin_44193021/article/details/118966577)一样

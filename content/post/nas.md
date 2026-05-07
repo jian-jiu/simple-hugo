@@ -10,9 +10,19 @@ tags:
     - 飞牛
 ---
 
+## 错误
+Apr 29 23:13:17 SIMPLE wpa_supplicant[926]: nl80211: kernel reports: key addition failed
+journalctl -b -p err | grep -i "nl80211"
+
+/etc/NetworkManager/system-connections
+nmcli connection show <你的连接名> | grep 802-11-wireless-security
+
 [论坛](https://club.fnnas.com/)
 
 使用的是【apt】包管理器
+
+## 风扇
+https://club.fnnas.com/forum.php?mod=viewthread&tid=32626
 
 ## wifi
 ```shell

@@ -12,14 +12,19 @@ tags:
 ---
 
 ## tracker
-https://trackerslist.com/#/zh
+https://newtrackon.com/
 ```shell
+# 更新1
 https://github.com/XIU2/TrackersListCollection
-https://cdn.jsdelivr.net/gh/ngosang/trackerslist/trackers_best.txt
+# 和上面相同
 https://trackerslist.com/all.txt
-https://newtrackon.com/list
+https://trackerslist.com/#/zh
+
+# 更新2
+https://cdn.jsdelivr.net/gh/ngosang/trackerslist/trackers_all.txt
+
+# 很久没更新
 https://dns.icoa.cn/tracker/
-https://gcore.jsdelivr.net/gh/XIU2/TrackersListCollection@master/best.txt
 ```
 
 ## 搜索

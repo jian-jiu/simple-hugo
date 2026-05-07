@@ -14,6 +14,10 @@ https://www.freeclashnode.com/free-node/2025-11-2-free-clash.htm
 
 [统一订阅管理](https://github.com/sub-store-org/Sub-Store)
 
+## cf
+### 优选
+https://github.com/HandsomeMJZ/cfip
+
 ## OpenClash
 [逐项配置介绍](https://www.youtube.com/watch?v=JcUA92mBoo0)
 https://www.youtube.com/watch?v=JcUA92mBoo0

@@ -8,6 +8,26 @@ tags:
     - linux
 ---
 
+## ubuntu 24.04
+使用的 apt upgrade
+
+### ssh root 登录
+```shell
+sudo nano /etc/ssh/sshd_config
+sudo sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+sudo sshd -t
+sudo systemctl restart ssh
+```
+
+时间问题
+```shell
+sudo timedatectl set-timezone Asia/Shanghai
+sudo nano /etc/systemd/timesyncd.conf
+sudo systemctl restart systemd-timesyncd
+timedatectl status
+```
+
+
 ## 定时器
 [详细介绍](https://www.cnblogs.com/guoew/p/11453231.html)
 

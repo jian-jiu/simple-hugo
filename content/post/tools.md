@@ -80,9 +80,6 @@ https://uutool.cn/header2json/
 [python 实现多线程下载m3u8格式视频，使用FFmpeg合并](https://blog.csdn.net/s_kangkang_A/article/details/103071822)
 [FFmpeg视频水印自动识别和去除](https://www.jianshu.com/p/4f649748d1b1)
 
-## Navicat 数据库
-[oracle连接问题参考](https://blog.csdn.net/qq_38974638/article/details/115069664)
-
 ## 文件对比工具下载
 [Beyond Compare 5](https://www.beyondcomparepro.com/download)
 
