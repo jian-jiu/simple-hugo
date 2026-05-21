@@ -19,6 +19,10 @@ py -0p
 ## py 查看安装目录
 [参考](https://blog.csdn.net/K_Duke/article/details/85220872)
 ## pip 命令
+```shell
+# 更新
+pip install --upgrade
+```
 [参考](https://blog.csdn.net/huyuchengus/article/details/114651015)
 
 [pip换源](https://blog.csdn.net/weixin_43031092/article/details/108690238)

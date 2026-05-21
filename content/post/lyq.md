@@ -10,7 +10,6 @@ tags:
 
 [upnp和dmz到底要不要一起开](https://www.right.com.cn/forum/thread-8134132-1-1.html)
 
-
 ## h3-2s
 ### 桥接
 宽带设置
@@ -19,12 +18,14 @@ tags:
 
 模式 桥模式
 
+![参考](https://cdn.242499.xyz/2026/05/17/f9b391b10c9becf19b880dafd9abd6df.png)
+
 ### 光猫改桥接后op访问光猫后台的设置
 https://www.bilibili.com/video/BV1F5411Q7Xp
 https://zhuanlan.zhihu.com/p/1924973204142810446
 创建接口 静态地址 192.168.1.x + 网关 关闭【默认网关】 有MAC就对了
 
-[http://192.168.1.1/usr=CMCCAdmin&psw=aDm8H%25MdA&cmd=1&telnet.gch](http://192.168.1.1/usr=CMCCAdmin&psw=aDm8H%25MdA&cmd=1&telnet.gch)
+[开启telnet](http://192.168.1.1/usr=CMCCAdmin&psw=aDm8H%25MdA&cmd=1&telnet.gch)
 
 CMCCAdmin
 user

@@ -34,7 +34,6 @@ Business editions包括：企业版、教育版、专业版；
 ### 文件管理器默认打开当前
 编辑JSON文件: 在 "profiles" 的 "default" 下添加 "startingDirectory": "."
 
-
 ## host 文件位置
 ```shell
 C:\WINDOWS\system32\drivers\etc
@@ -106,9 +105,9 @@ echo 11111111111
 ## 查看指定端口是否占用
 ```shell
 查看端口被哪个pid占用
-netstat -aon|findstr 9090
+netstat -aon | findstr 9090
 查看名字
-tasklist|findstr "9090"
+tasklist | findstr 9090
 杀死
 taskkill /T /F /PID 9090
 ```
@@ -169,3 +168,20 @@ pause
 [i713700k](https://www.intel.cn/content/www/cn/zh/products/sku/230500/intel-core-i713700k-processor-30m-cache-up-to-5-40-ghz/specifications.html)
 [显卡](https://www.intel.cn/content/www/cn/zh/support/products/80939/graphics.html)
 [13/14代超频](https://www.bilibili.com/read/cv29457601/?opus_fallback=1)
+
+## 软链接 硬链接
+```shell
+# 查看
+dir 目录
+
+# 软链接
+## /d 软连接 /h 硬链接(只能文件?)
+## cmd管理员打开 需要双引号
+mklink /D "链接路径" "目标文件路径"
+
+## 删除
+rmdir 目录
+
+# 创建
+junction -s 目录 目标
+```

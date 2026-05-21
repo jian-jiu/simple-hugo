@@ -15,7 +15,7 @@ tags:
 [原仓库](https://github.com/itKelis/MPV-Play-BiliBili-Comments)
 [gitee](https://gitee.com/kuaifuzhi/blbl-dm)
 
-cmd 管理员命令执行
+添加软链接 cmd 管理员命令执行
 mklink /D xxx\mpv-lazy\portable_config\scripts\bilibiliAssert xxx\scripts\bilibiliAssert
 
 [下载弹幕](https://greasyfork.org/zh-CN/scripts/524107-bilibili-腾讯视频弹幕下载) 

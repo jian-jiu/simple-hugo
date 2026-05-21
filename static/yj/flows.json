@@ -1,0 +1,896 @@
+[
+  {
+    "id": "ca12e04682bb4909",
+    "type": "tab",
+    "label": "今日油价",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "9ef02f475ec78d3f",
+    "type": "inject",
+    "z": "ca12e04682bb4909",
+    "name": "今日油价",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      },
+      {
+        "p": "requestTimeout",
+        "v": "2000",
+        "vt": "num"
+      }
+    ],
+    "repeat": "43200",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "1",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 190,
+    "y": 420,
+    "wires": [
+      [
+        "1db08fa489322e4c",
+        "9aa7648a0dfe17ee",
+        "88f31f6771031fb6",
+        "ec33c2b093712526",
+        "1a80c47a7a029cd8"
+      ]
+    ]
+  },
+  {
+    "id": "1db08fa489322e4c",
+    "type": "http request",
+    "z": "ca12e04682bb4909",
+    "name": "92# 汽油",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "https://www.icauto.com.cn/oil/price_441400_2.html",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 400,
+    "y": 340,
+    "wires": [
+      [
+        "4e1f98041e6b255c",
+        "e63a29f7efe9e62b"
+      ]
+    ]
+  },
+  {
+    "id": "4e1f98041e6b255c",
+    "type": "html",
+    "z": "ca12e04682bb4909",
+    "name": "函数组 1",
+    "property": "payload",
+    "outproperty": "payload",
+    "tag": "body > div.nav-wrap > div.articlemain > div.article-body-l > div.article-body-main > div.FWQleftA > div.FWQleftB > div.articlebody > p",
+    "ret": "text",
+    "as": "single",
+    "chr": "",
+    "x": 580,
+    "y": 340,
+    "wires": [
+      [
+        "f5caf2dfcdba4a52"
+      ]
+    ]
+  },
+  {
+    "id": "e63a29f7efe9e62b",
+    "type": "function",
+    "z": "ca12e04682bb4909",
+    "name": "更新时间 1",
+    "func": "Date.prototype.Format = function (fmt) {  \n    var o = {\n        \"M+\": this.getMonth() + 1, //月份 \n        \"d+\": this.getDate(), //日 \n        \"h+\": this.getHours(), //小时 \n        \"m+\": this.getMinutes(), //分 \n        \"s+\": this.getSeconds(), //秒 \n        \"q+\": Math.floor((this.getMonth() + 3) / 3), //季度 \n        \"S\": this.getMilliseconds() //毫秒 \n    };\n    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + \"\").substr(4 - RegExp.$1.length));\n    for (var k in o)\n    if (new RegExp(\"(\" + k + \")\").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : ((\"00\" + o[k]).substr((\"\" + o[k]).length)));\n    return fmt;\n}\nvar mydate = new Date().Format(\"yyyy年MM月dd日 hh:mm:ss\");\nmsg.payload = mydate;\nreturn msg;",
+    "outputs": 1,
+    "timeout": "",
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 770,
+    "y": 280,
+    "wires": [
+      [
+        "9121b4e3ddc0bbd6"
+      ]
+    ]
+  },
+  {
+    "id": "e9bf116b5284a541",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "92#",
+    "entityConfig": "d243f08eb00f085c",
+    "version": 0,
+    "state": "payload[1]",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1010,
+    "y": 260,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "9121b4e3ddc0bbd6",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "olitime",
+    "entityConfig": "d171d0b5ee0c76d7",
+    "version": 0,
+    "state": "payload",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1010,
+    "y": 200,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f5caf2dfcdba4a52",
+    "type": "function",
+    "z": "ca12e04682bb4909",
+    "name": "更新时间 2",
+    "func": "// 获取输入消息\nvar text1 = msg.payload[1]; // 主要信息文本\nvar text2 = msg.payload[2]; // 价格文本\n\n// 1. 提取日期：2026年03月28日\nvar dateMatch = text1.match(/(\\d{4}年\\d{2}月\\d{2}日)/);\n\n// 2. 提取价格：从 payload[2] 中提取 (匹配数字.数字格式)\nvar priceMatch = text2.match(/￥\\s*(\\d+\\.\\d+)/);\n\n// 3. 提取调整时间：2026-03-24\nvar adjustDateMatch = text1.match(/调整时间为(\\d{4}-\\d{2}-\\d{2})/);\n\n// 4. 提取涨跌金额：匹配 \"涨\" 或 \"跌\" 中间的数值\n// 修改正则：将 [涨跌] 放入括号内，这样可以捕获文字\nvar changeMatch = text1.match(/([涨跌])了(\\d+\\.\\d+)元/);\n\n\n// 构建输出数组\nvar outputArray = [\n    dateMatch ? dateMatch[1] : null,\n    priceMatch ? priceMatch[1] : null,\n    adjustDateMatch ? adjustDateMatch[1] : null,\n    // 拼接：第1个括号匹配的文字(涨/跌) + 第2个括号匹配的数字\n    // 例如：涨0.92 或 跌0.92\n    changeMatch ? changeMatch[1] + changeMatch[2] : null, \n\n];\n\n// 输出结果\nmsg.payload = outputArray;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 770,
+    "y": 340,
+    "wires": [
+      [
+        "e9bf116b5284a541",
+        "544c14dc18296058",
+        "d731bbfd47c7af0c"
+      ]
+    ]
+  },
+  {
+    "id": "544c14dc18296058",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "调整时间",
+    "entityConfig": "3be55e13b77b1aa5",
+    "version": 0,
+    "state": "payload[2]",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1020,
+    "y": 320,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "d731bbfd47c7af0c",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "幅度",
+    "entityConfig": "d799bd7b83bf2789",
+    "version": 0,
+    "state": "payload[3]",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1010,
+    "y": 380,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "9aa7648a0dfe17ee",
+    "type": "http request",
+    "z": "ca12e04682bb4909",
+    "name": "95# 汽油",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "https://www.icauto.com.cn/oil/price_441400_4.html",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 400,
+    "y": 400,
+    "wires": [
+      [
+        "03e22ef5a5cb5051"
+      ]
+    ]
+  },
+  {
+    "id": "03e22ef5a5cb5051",
+    "type": "html",
+    "z": "ca12e04682bb4909",
+    "name": "函数组 2",
+    "property": "payload",
+    "outproperty": "payload",
+    "tag": "body > div.nav-wrap > div.articlemain > div.article-body-l > div.article-body-main > div.FWQleftA > div.FWQleftB > div.articlebody > p",
+    "ret": "text",
+    "as": "single",
+    "chr": "",
+    "x": 580,
+    "y": 400,
+    "wires": [
+      [
+        "b559fe498dcb9ee6"
+      ]
+    ]
+  },
+  {
+    "id": "9a95b29845020457",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "95#",
+    "entityConfig": "35a219bd9ee85785",
+    "version": 0,
+    "state": "payload[1]",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1010,
+    "y": 440,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "b559fe498dcb9ee6",
+    "type": "function",
+    "z": "ca12e04682bb4909",
+    "name": "更新时间 3",
+    "func": "// 获取输入消息\nvar text1 = msg.payload[1]; // 主要信息文本\nvar text2 = msg.payload[2]; // 价格文本\n\n// 1. 提取日期：2026年03月28日\nvar dateMatch = text1.match(/(\\d{4}年\\d{2}月\\d{2}日)/);\n\n// 2. 提取价格：从 payload[2] 中提取 (匹配数字.数字格式)\nvar priceMatch = text2.match(/￥\\s*(\\d+\\.\\d+)/);\n\n// 3. 提取调整时间：2026-03-24\nvar adjustDateMatch = text1.match(/调整时间为(\\d{4}-\\d{2}-\\d{2})/);\n\n// 4. 提取涨跌金额：匹配 \"涨\" 或 \"跌\" 中间的数值\n// 修改正则：将 [涨跌] 放入括号内，这样可以捕获文字\nvar changeMatch = text1.match(/([涨跌])了(\\d+\\.\\d+)元/);\n\n\n// 构建输出数组\nvar outputArray = [\n    dateMatch ? dateMatch[1] : null,\n    priceMatch ? priceMatch[1] : null,\n    adjustDateMatch ? adjustDateMatch[1] : null,\n    // 拼接：第1个括号匹配的文字(涨/跌) + 第2个括号匹配的数字\n    // 例如：涨0.92 或 跌0.92\n    changeMatch ? changeMatch[1] + changeMatch[2] : null, \n\n];\n\n// 输出结果\nmsg.payload = outputArray;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 770,
+    "y": 400,
+    "wires": [
+      [
+        "9a95b29845020457"
+      ]
+    ]
+  },
+  {
+    "id": "ec33c2b093712526",
+    "type": "http request",
+    "z": "ca12e04682bb4909",
+    "name": "97# 汽油",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "https://www.icauto.com.cn/oil/price_441400_5.html",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 400,
+    "y": 460,
+    "wires": [
+      [
+        "892ba99fe0f810c6"
+      ]
+    ]
+  },
+  {
+    "id": "892ba99fe0f810c6",
+    "type": "html",
+    "z": "ca12e04682bb4909",
+    "name": "函数组 3",
+    "property": "payload",
+    "outproperty": "payload",
+    "tag": "body > div.nav-wrap > div.articlemain > div.article-body-l > div.article-body-main > div.FWQleftA > div.FWQleftB > div.articlebody > p",
+    "ret": "text",
+    "as": "single",
+    "chr": "",
+    "x": 580,
+    "y": 460,
+    "wires": [
+      [
+        "3dbd0a0342babd25"
+      ]
+    ]
+  },
+  {
+    "id": "532c216d62db6144",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "97#",
+    "entityConfig": "a543754d28e9ac9b",
+    "version": 0,
+    "state": "payload[1]",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1010,
+    "y": 500,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "3dbd0a0342babd25",
+    "type": "function",
+    "z": "ca12e04682bb4909",
+    "name": "更新时间 4",
+    "func": "// 获取输入消息\nvar text1 = msg.payload[1]; // 主要信息文本\nvar text2 = msg.payload[2]; // 价格文本\n\n// 1. 提取日期：2026年03月28日\nvar dateMatch = text1.match(/(\\d{4}年\\d{2}月\\d{2}日)/);\n\n// 2. 提取价格：从 payload[2] 中提取 (匹配数字.数字格式)\nvar priceMatch = text2.match(/￥\\s*(\\d+\\.\\d+)/);\n\n// 3. 提取调整时间：2026-03-24\nvar adjustDateMatch = text1.match(/调整时间为(\\d{4}-\\d{2}-\\d{2})/);\n\n// 4. 提取涨跌金额：匹配 \"涨\" 或 \"跌\" 中间的数值\n// 修改正则：将 [涨跌] 放入括号内，这样可以捕获文字\nvar changeMatch = text1.match(/([涨跌])了(\\d+\\.\\d+)元/);\n\n\n// 构建输出数组\nvar outputArray = [\n    dateMatch ? dateMatch[1] : null,\n    priceMatch ? priceMatch[1] : null,\n    adjustDateMatch ? adjustDateMatch[1] : null,\n    // 拼接：第1个括号匹配的文字(涨/跌) + 第2个括号匹配的数字\n    // 例如：涨0.92 或 跌0.92\n    changeMatch ? changeMatch[1] + changeMatch[2] : null, \n\n];\n\n// 输出结果\nmsg.payload = outputArray;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 770,
+    "y": 460,
+    "wires": [
+      [
+        "532c216d62db6144"
+      ]
+    ]
+  },
+  {
+    "id": "88f31f6771031fb6",
+    "type": "http request",
+    "z": "ca12e04682bb4909",
+    "name": "    0# 柴油",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "https://www.icauto.com.cn/oil/price_441400_7.html",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 400,
+    "y": 520,
+    "wires": [
+      [
+        "3674ac529b63a89d"
+      ]
+    ]
+  },
+  {
+    "id": "3674ac529b63a89d",
+    "type": "html",
+    "z": "ca12e04682bb4909",
+    "name": "函数组 4",
+    "property": "payload",
+    "outproperty": "payload",
+    "tag": "body > div.nav-wrap > div.articlemain > div.article-body-l > div.article-body-main > div.FWQleftA > div.FWQleftB > div.articlebody > p",
+    "ret": "text",
+    "as": "single",
+    "chr": "",
+    "x": 580,
+    "y": 520,
+    "wires": [
+      [
+        "782d764979cd3c9f"
+      ]
+    ]
+  },
+  {
+    "id": "e7f0fcf7e48eeaeb",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "0#",
+    "entityConfig": "6aac5446155a3983",
+    "version": 0,
+    "state": "payload[1]",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1010,
+    "y": 560,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "782d764979cd3c9f",
+    "type": "function",
+    "z": "ca12e04682bb4909",
+    "name": "更新时间 5",
+    "func": "// 获取输入消息\nvar text1 = msg.payload[1]; // 主要信息文本\nvar text2 = msg.payload[2]; // 价格文本\n\n// 1. 提取日期：2026年03月28日\nvar dateMatch = text1.match(/(\\d{4}年\\d{2}月\\d{2}日)/);\n\n// 2. 提取价格：从 payload[2] 中提取 (匹配数字.数字格式)\nvar priceMatch = text2.match(/￥\\s*(\\d+\\.\\d+)/);\n\n// 3. 提取调整时间：2026-03-24\nvar adjustDateMatch = text1.match(/调整时间为(\\d{4}-\\d{2}-\\d{2})/);\n\n// 4. 提取涨跌金额：匹配 \"涨\" 或 \"跌\" 中间的数值\n// 修改正则：将 [涨跌] 放入括号内，这样可以捕获文字\nvar changeMatch = text1.match(/([涨跌])了(\\d+\\.\\d+)元/);\n\n\n// 构建输出数组\nvar outputArray = [\n    dateMatch ? dateMatch[1] : null,\n    priceMatch ? priceMatch[1] : null,\n    adjustDateMatch ? adjustDateMatch[1] : null,\n    // 拼接：第1个括号匹配的文字(涨/跌) + 第2个括号匹配的数字\n    // 例如：涨0.92 或 跌0.92\n    changeMatch ? changeMatch[1] + changeMatch[2] : null, \n\n];\n\n// 输出结果\nmsg.payload = outputArray;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 770,
+    "y": 520,
+    "wires": [
+      [
+        "e7f0fcf7e48eeaeb"
+      ]
+    ]
+  },
+  {
+    "id": "1a80c47a7a029cd8",
+    "type": "http request",
+    "z": "ca12e04682bb4909",
+    "name": "下次调整时间",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "https://oil.cbish.com/tiaojia.html",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 420,
+    "y": 580,
+    "wires": [
+      [
+        "075e8a0c135b8cdf"
+      ]
+    ]
+  },
+  {
+    "id": "075e8a0c135b8cdf",
+    "type": "html",
+    "z": "ca12e04682bb4909",
+    "name": "函数组 5",
+    "property": "payload",
+    "outproperty": "payload",
+    "tag": "body > div > section:nth-child(3) > div > table > tbody > tr",
+    "ret": "text",
+    "as": "single",
+    "chr": "_",
+    "x": 580,
+    "y": 580,
+    "wires": [
+      [
+        "f75fe01cc2c7a6c2"
+      ]
+    ]
+  },
+  {
+    "id": "f75fe01cc2c7a6c2",
+    "type": "function",
+    "z": "ca12e04682bb4909",
+    "name": "下次调整时间",
+    "func": "// 格式化日期函数\nfunction formatDate(date) {\n    const year = date.getFullYear();\n    const month = String(date.getMonth() + 1).padStart(2, '0');\n    const day = String(date.getDate()).padStart(2, '0');\n    return `${year}年${month}月${day}日`;\n}\n\n// 提取时间的主逻辑\nif (Array.isArray(msg.payload)) {\n    const matched = msg.payload.find(item => /下一轮/.test(String(item)));\n    if (matched) {\n        const text = String(matched);\n        const timeRegex = /(\\d{1,2}月\\d{1,2}日\\d{1,2}时)/;\n        const match = text.match(timeRegex);\n        if (match) {\n            const extractedTime = match[1];  // 如 \"5月21日24时\"\n            const currentDate = formatDate(new Date());\n            // 组合结果：例如 \"2026年05月17日 5月21日24时\"\n            msg.payload = `${currentDate} ${extractedTime}`;\n        } else {\n            msg.payload = null;\n        }\n    } else {\n        msg.payload = null;\n    }\n} else {\n    msg.payload = null;\n}\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 780,
+    "y": 580,
+    "wires": [
+      [
+        "54e8459567a4d9af"
+      ]
+    ]
+  },
+  {
+    "id": "54e8459567a4d9af",
+    "type": "ha-sensor",
+    "z": "ca12e04682bb4909",
+    "name": "nextTime",
+    "entityConfig": "0a13bab8fb205469",
+    "version": 0,
+    "state": "payload",
+    "stateType": "msg",
+    "attributes": [],
+    "inputOverride": "allow",
+    "outputProperties": [],
+    "x": 1020,
+    "y": 620,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "d243f08eb00f085c",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "92#",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "92#"
+      },
+      {
+        "property": "icon",
+        "value": "mdi:gas-station"
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": "元"
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "d171d0b5ee0c76d7",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "olitime",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "olitime"
+      },
+      {
+        "property": "icon",
+        "value": ""
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": ""
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "3be55e13b77b1aa5",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "调整时间",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "调整时间"
+      },
+      {
+        "property": "icon",
+        "value": ""
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": ""
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "d799bd7b83bf2789",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "幅度",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "幅度"
+      },
+      {
+        "property": "icon",
+        "value": ""
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": ""
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "35a219bd9ee85785",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "95#",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "95#"
+      },
+      {
+        "property": "icon",
+        "value": "mdi:gas-station"
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": "元"
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "a543754d28e9ac9b",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "97#",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "97#"
+      },
+      {
+        "property": "icon",
+        "value": "mdi:gas-station"
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": "元"
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "6aac5446155a3983",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "0#",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "0#"
+      },
+      {
+        "property": "icon",
+        "value": "mdi:gas-station"
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": "元"
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "0a13bab8fb205469",
+    "type": "ha-entity-config",
+    "server": "1d24d5eca241a7fa",
+    "deviceConfig": "",
+    "name": "nextTime",
+    "version": 6,
+    "entityType": "sensor",
+    "haConfig": [
+      {
+        "property": "name",
+        "value": "nextTime"
+      },
+      {
+        "property": "icon",
+        "value": ""
+      },
+      {
+        "property": "entity_picture",
+        "value": ""
+      },
+      {
+        "property": "entity_category",
+        "value": ""
+      },
+      {
+        "property": "device_class",
+        "value": ""
+      },
+      {
+        "property": "unit_of_measurement",
+        "value": ""
+      },
+      {
+        "property": "state_class",
+        "value": ""
+      }
+    ],
+    "resend": false,
+    "debugEnabled": false
+  },
+  {
+    "id": "1d24d5eca241a7fa",
+    "type": "server",
+    "name": "API",
+    "version": 6,
+    "addon": false,
+    "rejectUnauthorizedCerts": true,
+    "ha_boolean": [
+      "y",
+      "yes",
+      "true",
+      "on",
+      "home",
+      "open"
+    ],
+    "connectionDelay": true,
+    "cacheJson": true,
+    "heartbeat": true,
+    "heartbeatInterval": 30,
+    "areaSelector": "friendlyName",
+    "deviceSelector": "friendlyName",
+    "entitySelector": "friendlyName",
+    "statusSeparator": ": ",
+    "statusYear": "hidden",
+    "statusMonth": "short",
+    "statusDay": "numeric",
+    "statusHourCycle": "default",
+    "statusTimeFormat": "h:m",
+    "enableGlobalContextStore": true
+  },
+  {
+    "id": "583edf56c801a850",
+    "type": "global-config",
+    "env": [],
+    "modules": {
+      "node-red-contrib-home-assistant-websocket": "0.80.3"
+    }
+  }
+]

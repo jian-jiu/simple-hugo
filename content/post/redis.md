@@ -14,11 +14,12 @@ tags:
 ## 实现分布式锁和等待序列
 [详情](https://blog.csdn.net/LMY413231718/article/details/95244258)
 
-# win软件
+## win软件
 
-## AnotherRedisDesktopManager
+### AnotherRedisDesktopManager
 [github](https://github.com/qishibo/AnotherRedisDesktopManager/)
-## Tiny RDM
+
+### Tiny RDM
 [官网](https://redis.tinycraft.cc/zh/)
 [github](https://github.com/tiny-craft/tiny-rdm)
 

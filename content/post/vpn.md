@@ -34,6 +34,10 @@ https://stymei.cc.cd/
 ## clash 代理
 [tun模式](https://flashvpn.io/blog/clash-tun-mode-explained)
 
+![](https://cdn.242499.xyz/2026/05/17/161c6fe665d6feade659ed448c827f69.png)
+
+![](https://cdn.242499.xyz/2026/05/17/20396c1142d5e725bb2c28af5955128c.png)
+
 ## 机场
 [VC喵](https://www.vcmiao.com)
 [赔钱](https://pqjc.site)

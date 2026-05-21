@@ -2,27 +2,25 @@
 title: esp
 date: 2026-03-07
 categories:
-    - esp
+  - esp
 tags:
-    - esp
-    - esphome
-    - esp8266
+  - esp
+  - esphome
+  - esp8266
 ---
 
-## esphome
-[蓝牙代理](https://bbs.hassbian.com/thread-20157-1-1.html)
-
-### esp01s
-[rst cause:2, boot mode:(\*,\*) 错误意思](https://www.singleye.net/2017/05/esp8266%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F---%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rst-cause2-boot-mode36/)
-
 ## 小智
+
 [MCP](https://www.bilibili.com/video/BV1Hg7szeEMT/)
 
 ## clion
+
 ### platformio
+
 [platformio](https://www.bilibili.com/video/BV15x4y1W7Dq)
 
 安装python
+
 ```shell
 pip install platformio
 pio settings get
@@ -32,9 +30,10 @@ pio system info
 修改 PLATFORMIO_CORE_DIR 为自定义
 PlatformIO Core Directory 就是自己想要的了
 ```
-### arduino教程
-[参考](https://www.echo.cool/docs/category/arduino-%E6%95%99%E7%A8%8B)
 
+### arduino教程
+
+[参考](https://www.echo.cool/docs/category/arduino-%E6%95%99%E7%A8%8B)
 
 [esp32文档](https://wiki.luatos.com/chips/esp32c3/index.html)
 
@@ -65,24 +64,41 @@ pio project init --board esp01_1m
 ```
 
 ### 命令下载
+
 ```shell
 pio project init --board airm2m_core_esp32c3
 ```
+
 ### esp32 c3
-[风扇参考](https://blog.csdn.net/u012388993/article/details/130318569)
 
 [pwm问题](https://blog.csdn.net/qq_42679566/article/details/119549859)
 [pwm问题1](https://blog.csdn.net/qq_57139623/article/details/139859580)
 
 [mcpwm](https://www.codeleading.com/article/84763231155/)
 
-## ESP-01S(ESP8266)
-## 烧录
+## ESP-01S(ESP8266,esp01s)
+
+继电器开关用的 IO0
+
+[rst cause:2, boot mode:(\*,\*) 错误意思](https://www.singleye.net/2017/05/esp8266%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F---%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rst-cause2-boot-mode36/)
+
+### 接口说明
+
+| 针       | 天线      |
+|---------|---------|
+| 3v3     | RX(IO3) |
+| RST     | IO0     |
+| EN      | IO2     |
+| TX(IO1) | GND     |
+
+### 烧录
+
 GPIO0 拉地(接地 负极)
 
 ### 无法深度睡眠下唤醒
+
 存储芯片的问题
-小点旁边[小点2引脚](第二个 [DO MISO SD_D0]) 10k(电阻) vcc(电源正) 
+小点旁边[小点2引脚](第二个 [DO MISO SD_D0]) 10k(电阻) vcc(电源正)
 [参考1](https://www.soinside.com/question/dKemPdY2JXERXA6WoKxoeE)
 
 [参考](https://github.com/esp8266/Arduino/issues/6007)
@@ -93,14 +109,17 @@ GPIO0 拉地(接地 负极)
 [使用USB转TTL下载固件](https://blog.csdn.net/weixin_43764787/article/details/116333778)
 
 ### 「 ESP8266-01s刷入固件报SP8266 Chip efuse check error esp_check_mac_and_efuse」
+
 esptool --port COM6 write_flash 0x00000
 
 #### 睡眠
+
 [参考1](https://blog.csdn.net/Nirvana_6174/article/details/104485963)
 [参考2](https://blog.51cto.com/u_16099215/10675454)
 [参考3](https://www.tubring.cn/articles/85)
 
 ## platformio
+
 ```cpp
 #include <Arduino.h>
 
@@ -122,6 +141,7 @@ void loop()
     Serial.printf("getFlashChipRealSize  %hhu \n", EspClass::getFlashChipRealSize());
 }
 ```
+
 ```ini
 [env:esp01_1m]
 platform = espressif8266

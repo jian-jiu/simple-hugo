@@ -11,11 +11,17 @@ tags:
 ---
 
 ## 错误
-Apr 29 23:13:17 SIMPLE wpa_supplicant[926]: nl80211: kernel reports: key addition failed
+SIMPLE wpa_supplicant[926]: nl80211: kernel reports: key addition failed
 journalctl -b -p err | grep -i "nl80211"
 
 /etc/NetworkManager/system-connections
 nmcli connection show <你的连接名> | grep 802-11-wireless-security
+
+lspci | grep Network
+lspci -v -s 02:00.0
+
+sudo modprobe -r rtw_8822be
+sudo modprobe rtw88_8822be
 
 [论坛](https://club.fnnas.com/)
 
@@ -58,11 +64,19 @@ nmcli connection show xxx
 ```
 
 ## 笔记本关屏不休眠
+brightnessctl set 50%
+[屏幕亮度](https://club.fnnas.com/forum.php?mod=viewthread&tid=16230)
+
+[开关背光]https://club.fnnas.com/forum.php?mod=viewthread&tid=5502
+
+https://club.fnnas.com/forum.php?mod=viewthread&tid=989
 
 [参考](https://zhuanlan.zhihu.com/p/1926745250128429307)
+
 [参考](https://blog.csdn.net/qq_45797625/article/details/146341824)
 
-## 第三方商店
+https://club.fnnas.com/forum.php?mod=viewthread&tid=23332
+
 ```config
 ignore 忽略
 # 电池供电时合盖
@@ -88,7 +102,7 @@ systemctl restart docker
 
 echo "ok"
 ```
-
+    
 ## 蓝牙
 ```shell
 apt install bluez bluez-tools
@@ -128,7 +142,7 @@ ql raw https://ghfast.top/https://raw.githubusercontent.com/FlechazoPh/QLDepende
 got问题  nodejs 需要依赖 got@11
 ```
 
-# 通知
+## 通知
 变量 jd_CheckCK_notify
 
 脚本管理 项目库目录下的 sendNotify.js

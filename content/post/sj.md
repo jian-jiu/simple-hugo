@@ -50,6 +50,10 @@ OPPOx9也是 ipts
 
 [Shamiko-v1.2.5-414](https://github.com/LSPosed/LSPosed.github.io/releases)
 
+[Yurikey Manager](https://github.com/Yurii0307/yurikey) 需要TrickyStore先安装
+
+[TEESimulator](https://github.com/JingMatrix/TEESimulator)
+
 ### LSPosed
 目前看到最高 1.9.2-it(7469) github Dxandme
 [JingMatrix/LSPosed 1.11.0](https://github.com/JingMatrix/LSPosed/releases)

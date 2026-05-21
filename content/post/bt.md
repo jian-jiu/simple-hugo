@@ -30,6 +30,12 @@ https://dns.icoa.cn/tracker/
 ## 搜索
 [BT磁力天堂](https://bt20250618.btcltt.cc/)
 
+[SOBT](https://sobt18.icu/)
+
+https://nyaa.land/
+
+[看列表](https://iknowwhatyoudownload.com/en/peer/)
+
 ## 检测预览
 [预览链接的内容](https://whatslink.info)
 
@@ -38,9 +44,6 @@ https://dns.icoa.cn/tracker/
 
 ## 其他
 [恶意bt处理](https://docs.qq.com/doc/DQnJBTGJjSFZBR2JW)
-
-## 搜索
-[看列表](https://iknowwhatyoudownload.com/en/peer/)
 
 ## SkrBT
 [中文站点](https://skrbt.sodanav.com/)
