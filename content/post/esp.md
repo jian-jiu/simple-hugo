@@ -9,9 +9,13 @@ tags:
   - esp8266
 ---
 
+[三线灯和二线灯](https://m.eestar.com/pages/articleDetail/index?id=5018)
+
 ## 小智
 
+[接线](https://my.feishu.cn/wiki/EH6wwrgvNiU7aykr7HgclP09nCh)
 [MCP](https://www.bilibili.com/video/BV1Hg7szeEMT/)
+
 
 ## clion
 
@@ -77,10 +81,12 @@ pio project init --board airm2m_core_esp32c3
 [mcpwm](https://www.codeleading.com/article/84763231155/)
 
 ## ESP-01S(ESP8266,esp01s)
-
 继电器开关用的 IO0
-
+[参考](https://blog.csdn.net/qq_42417071/article/details/135255643)
+[颗粒信息](https://blog.csdn.net/tianizimark/article/details/124676861)
 [rst cause:2, boot mode:(\*,\*) 错误意思](https://www.singleye.net/2017/05/esp8266%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F---%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rst-cause2-boot-mode36/)
+
+[4针风扇接口](https://oldgerman.github.io/f3fd3c5b/)
 
 ### 接口说明
 
@@ -118,6 +124,9 @@ esptool --port COM6 write_flash 0x00000
 [参考2](https://blog.51cto.com/u_16099215/10675454)
 [参考3](https://www.tubring.cn/articles/85)
 
+### 温度计
+[参考](https://bbs.hassbian.com/thread-25339-1-1.html)
+
 ## platformio
 
 ```cpp
@@ -150,3 +159,7 @@ framework = arduino
 ;monitor_speed = 115200
 monitor_speed = 74880
 ```
+
+
+## ESP32C3
+[文档](https://wiki.luatos.com/chips/esp32c3/board.html)

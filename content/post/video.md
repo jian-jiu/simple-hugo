@@ -12,6 +12,17 @@ tags:
     - video
 ---
 
+## 文件说明
+### 文件后缀
+mka 音频
+mkv 视频
+sc.ass 简体中文字幕
+tc.ass 繁体中文字幕
+### 文件夹
+CDs 音乐光盘，通常包含 OST（原声带）、角色歌、广播剧 CD 等音频文件
+Scans 扫描件，通常是实体碟片的封面、封底、小册子（booklet）等扫描图片
+SPs Specials（特别篇），通常是 OVA、番外、特典影像等额外视频内容
+
 ## 影视站推荐
 [动漫花园](https://garden.breadio.wiki)
 [动漫花园同步站](https://dmhy.myheartsite.com)
