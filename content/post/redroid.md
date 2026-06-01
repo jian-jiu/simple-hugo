@@ -11,6 +11,9 @@ tags:
     - 模拟器
 ---
 
+## 飞牛
+https://club.fnnas.com/forum.php?mod=viewthread&tid=36386
+
 ## redroid-script
 [面具](https://github.com/ayasa520/redroid-script)
 ```shell

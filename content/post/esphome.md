@@ -10,7 +10,6 @@ tags:
 
 [蓝牙代理](https://bbs.hassbian.com/thread-20157-1-1.html)
 
-
 ## 开发
 [开发者文档](https://developers.esphome.io/)
 mklink /D "./components" "有内容的\components"
@@ -22,8 +21,12 @@ external_components:
 ## 在线烧录
 https://web.esphome.io/
 
-## tds
+## tds 水质
 [参考](https://github.com/JochenZhou/esphome-custom-components)
+https://github.com/ryanh7/esphome-custom-components
+https://github.com/hqc201105/esphome_tds_sensor
+https://bbs.hassbian.com/thread-23740-1-1.html
+
 
 ## 风扇
 pwm 用 IO2

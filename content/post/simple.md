@@ -9,6 +9,10 @@ tags:
   - simple
 ---
 
+[全球实况高清摄像头](http://skylinewebcams.com)
+
+[机器翻译](libretranslate)
+
 ## minio rustfs
 https://juejin.cn/post/7523256725127987226
 

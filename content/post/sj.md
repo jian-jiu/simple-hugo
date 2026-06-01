@@ -16,6 +16,8 @@ tags:
 
 [rom站](https://www.hyperos.fans/zh/devices)
 
+[tasker 手机自动化](https://tasker.joaoapps.com/download.html)
+
 ## 手机
 k90pm
 https://www.123865.com/s/NZ8uVv-N4EpH?notoken=1
@@ -31,6 +33,8 @@ OPPOx9也是 ipts
 典型能量 28.66Wh
 
 ## 模块
+[box_for_magisk](https://github.com/taamarin/box_for_magisk)
+[sub store for magisk](https://github.com/sub-store-org/Sub-Store)
 
 ### 元模块
 [解释](https://kernelsu.org/zh_CN/guide/metamodule.html)
@@ -79,20 +83,12 @@ OPPOx9也是 ipts
 ## InstallerX 安装器
 [下载](https://github.com/wxxsfxyzm/InstallerX-Revived)
 
-## HyperCeiler
-[官网](https://hyperceiler.sevtinge.com)
-[下载](https://github.com/ReChronoRain/HyperCeiler/releases)
-[r1](https://github.com/Aurora-dotcom/HyperCeiler-R1)
-
 ## oshape
 [github](https://github.com/xzakota/HyperOShape)
 模块在 飞机
 
 ## HyperLight 液态玻璃 高光样式
 [下载](https://github.com/KiminonawaResa/HyperLight)
-
-## HookVip
-[官网](https://github.com/Xposed-Modules-Repo/top.hookvip.pro)
 
 ### 下面的不知道干嘛的
 
@@ -106,8 +102,34 @@ OPPOx9也是 ipts
 [下载](https://github.com/KernelSU-Modules-Repo/magic_mount_rs/)
 
 ## lsp模块
+betterVia
+fcmfix
+
+
 ### 隐藏应用列表
 [仓库](https://github.com/Dr-TSNG/Hide-My-Applist/releases)
+
+### HookVip
+[官网](https://github.com/Xposed-Modules-Repo/top.hookvip.pro)
+
+### HyperCeiler
+[官网](https://hyperceiler.sevtinge.com)
+[下载](https://github.com/ReChronoRain/HyperCeiler/releases)
+[r1](https://github.com/Aurora-dotcom/HyperCeiler-R1)
+
+### 米客
+[https://rz3kv5wa4g.jiandaoyun.com/dash/650e43a383027ec3225083e9](https://github.com/MonwF/customiuizer)
+
+## qq 微信
+[QAuxiliary 不错](https://github.com/cinit/QAuxiliary)
+
+[WeKit](https://github.com/cwuom/WeKit)
+
+[WAuxiliary](https://github.com/HdShare/WAuxiliary_Public)
+
+[fkwechat](https://github.com/Xposed-Modules-Repo/me.yun.fkwechat)
+
+[newmiko 飞机有 似乎收费](https://github.com/dartcv/NewMiko)
 
 ## 推荐
 [酷安](https://www.coolapk.com)

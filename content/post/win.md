@@ -9,6 +9,9 @@ tags:
     - win
 ---
 
+[windhawk win工具超级多](https://windhawk.net)
+[ocr翻译工具](https://github.com/STranslate/STranslate)
+
 ## 系统
 [官方下载](https://www.microsoft.com/zh-cn/software-download/windows11)
 ### windows系统重装工具
@@ -153,6 +156,8 @@ pause
 /var/apps/aria2/shares/Download
 
 ## idm 下载器
+浏览器插件禁止
+C:\Users\xxx\AppData\Local\Microsoft\Edge\User Data\Default\Extensions
 [参考](https://blog.csdn.net/qq_61621323/article/details/141061544)
 
 [参考](https://zhuanlan.zhihu.com/p/430535305)

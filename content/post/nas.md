@@ -45,6 +45,7 @@ fi
 ```
 
 ## wifi 省电模式
+sudo iw dev wlp2s0 set power_save off
 ```shell
 apt install iw
 ifconfig
@@ -56,6 +57,11 @@ iw dev wlp2s0 get power_save
 [connection]
 wifi.powersave = 2
 ```
+
+# 禁用 NetworkManager 的 WiFi 电源管理
+sudo sed -i 's/wifi.powersave = 2/wifi.powersave = 3/' /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+# 如果文件不存在：
+echo -e "[connection]\nwifi.powersave = 3" | sudo tee /etc/NetworkManager/conf.d/wifi-powersave.conf
 
 ### 永久关闭???
 ```shell
