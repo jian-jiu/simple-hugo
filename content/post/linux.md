@@ -27,6 +27,8 @@ sudo systemctl restart systemd-timesyncd
 timedatectl status
 ```
 
+## 端口
+
 
 ## 定时器
 [详细介绍](https://www.cnblogs.com/guoew/p/11453231.html)
@@ -44,15 +46,15 @@ echo "EOL:0x$eol SLC:0x$slc MLC:0x$mlc"
 
 ## Debian armbian
 
-# 不同的版本名称
+### 不同的版本名称
 Debian 11        Bullseye
 Debian 12        Bookworm       
 Ubuntu 22.04 LTS Jammy Jellyfish
 Ubuntu 24.04 LTS Noble Numbat
 
-# 换Debian源
+### 换Debian源
 
-## 命令
+#### 命令
 ```shell
 armbian-sync
 armbian-apt
@@ -188,7 +190,7 @@ deb https://mirrors.huaweicloud.com/debian/ bookworm-backports main non-free non
 deb-src https://mirrors.huaweicloud.com/debian/ bookworm-backports main non-free non-free-firmware contrib
 ```
 
-# 更新
+### 更新
 
 apt-get update && apt-get upgrade
 
@@ -209,29 +211,29 @@ sudo cp trusted.gpg trusted.gpg.d
 sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d
 ```
 
-# No sandbox user '_apt' on the system, can not drop privileges
+### No sandbox user '_apt' on the system, can not drop privileges
 [参考](https://askubuntu.com/questions/882039/no-sandbox-user-apt-on-the-system-can-not-drop-privileges)
 ```shell
 sudo adduser --force-badname --system --no-create-home _apt
 ```
 
-## 交换区设置
+#### 交换区设置
 [参考](https://blog.donothing.site/2019/11/16/linux-swap/)
 
-## 查大文件
+#### 查大文件
 ```
  find / -type f -size +1G
 ```
 
-## 时区
+#### 时区
 ```shell
 # 查看
 timedatectl
 # 设置
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
-## 服务命令
-### 防火墙
+#### 服务命令
+##### 防火墙
 [参考文档](https://www.php.cn/linux-443556.html)
 ## service
 命令只支持基础 LSB 动作
@@ -248,7 +250,7 @@ status（状态）
 如: systemctl status firewalld （查看防火墙状态，注意顺序: systemctl 状态 服务）
 
 
-## 清空文件
+#### 清空文件
 [参考](https://blog.csdn.net/pi9nc/article/details/18257593)
 ```shell
 cat /dev/null > /var/log/messages
@@ -256,7 +258,7 @@ cat /dev/null > /var/log/messages
 : > /var/log/messages
 ```
 
-## 压缩解压缩
+#### 压缩解压缩
 
 J(大写):使用压缩 .xz
 
@@ -274,7 +276,7 @@ x:解压缩
 
 解压文件 tar -zxvf  文件 -C 地址
 
-## 动态输出日志
+#### 动态输出日志
 
 tail -f 文件
 
@@ -288,7 +290,7 @@ tail -f 文件
 	
 	然后使之生效：
 	source ~/.bashrc
-## [快速查找文件](https://blog.csdn.net/xxmonstor/article/details/80507769)
+#### [快速查找文件](https://blog.csdn.net/xxmonstor/article/details/80507769)
 
 修改文件权限
 修改文件权限使用chmod指令。该指令常用的有两种使用方式：

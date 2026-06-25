@@ -23,9 +23,6 @@ tags:
 [游侠网](https://www.ali213.net/)
 [游民星空](https://www.gamersky.com/)
 [vorix]()
-[ycc]()
-[ycc]()
-[ycc]()
 
 ### mod
 [参考](https://zhuanlan.zhihu.com/p/1972748803489682374)

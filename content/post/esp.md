@@ -15,7 +15,26 @@ tags:
 
 [接线](https://my.feishu.cn/wiki/EH6wwrgvNiU7aykr7HgclP09nCh)
 [MCP](https://www.bilibili.com/video/BV1Hg7szeEMT/)
+https://www.bilibili.com/video/BV11e2iBZEje
 
+Xiaozhi Assistant
+- Board Type
+
+Bread Compact WiFi + LCD (面包板)
+- LCD Type
+
+ST7789 240*240
+
+- Select display style
+
+Enable default message style
+
+tuan zi
+团子
+
+
+### 文字乱码
+win搜索 区域 -> 管理 > 更改系统区域设置 > Beta: 使用 Unicode UTF-8 提供全球语言支持
 
 ## clion
 
@@ -159,7 +178,6 @@ framework = arduino
 ;monitor_speed = 115200
 monitor_speed = 74880
 ```
-
 
 ## ESP32C3
 [文档](https://wiki.luatos.com/chips/esp32c3/board.html)

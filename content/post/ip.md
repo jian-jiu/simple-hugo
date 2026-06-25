@@ -34,4 +34,5 @@ https://dns.iui.im/ipv6/
 https://natchecker.com/zh
 
 ## 大全
-https://www.itdog.cn/
+https://www.itdog.cn
+[ipv6](https://www.itdog.cn/tcping_ipv6)

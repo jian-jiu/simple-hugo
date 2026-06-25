@@ -45,11 +45,15 @@ fi
 ```
 
 ## wifi 省电模式
-sudo iw dev wlp2s0 set power_save off
 ```shell
+# 关闭
+sudo iw dev wlp2s0 set power_save off
 apt install iw
 ifconfig
+# 查看
 iw dev wlp2s0 get power_save
+# 重启
+systemctl restart NetworkManager
 ```
 
 创建文件 /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
@@ -58,9 +62,9 @@ iw dev wlp2s0 get power_save
 wifi.powersave = 2
 ```
 
-# 禁用 NetworkManager 的 WiFi 电源管理
+### 禁用 NetworkManager 的 WiFi 电源管理
 sudo sed -i 's/wifi.powersave = 2/wifi.powersave = 3/' /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
-# 如果文件不存在：
+### 如果文件不存在：
 echo -e "[connection]\nwifi.powersave = 3" | sudo tee /etc/NetworkManager/conf.d/wifi-powersave.conf
 
 ### 永久关闭???
@@ -148,7 +152,7 @@ ql raw https://ghfast.top/https://raw.githubusercontent.com/FlechazoPh/QLDepende
 got问题  nodejs 需要依赖 got@11
 ```
 
-## 通知
+### bot napcat 通知
 变量 jd_CheckCK_notify
 
 脚本管理 项目库目录下的 sendNotify.js
@@ -162,11 +166,11 @@ const push_config = {
     WEBHOOK_CONTENT_TYPE: 'application/json', // 自定义通知 content-type
 }
 
-        const body = parseBody(WEBHOOK_BODY, WEBHOOK_CONTENT_TYPE, (v) =>
-            v
-                ?.replaceAll('$title', text?.replaceAll('\n', '\\n') + '\n')
-                ?.replaceAll('$content', desp),
-        );
+const body = parseBody(WEBHOOK_BODY, WEBHOOK_CONTENT_TYPE, (v) =>
+    v
+        ?.replaceAll('$title', text?.replaceAll('\n', '\\n') + '\n')
+        ?.replaceAll('$content', desp),
+);
 ```
 需要函数 webhookNotify parseString parseHeaders parseBody formatBodyFun 青龙目录下有
 

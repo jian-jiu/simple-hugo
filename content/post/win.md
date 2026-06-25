@@ -32,6 +32,11 @@ Business editions包括：企业版、教育版、专业版；
 而GUID就是新兴的GPT方式，支持的主分区数量没有限制；MBR支持win7版本系统以下的32位和64位，
 而GUID支持win7版本以上的64位系统，不支持32位系统。”
 
+## 工具
+### 剪切板
+https://github.com/jimuzhe/tiez-clipboard
+https://github.com/EcoPasteHub/EcoPaste
+
 ## 命令行工具 PowerShell
 快捷方式 wt
 ### 文件管理器默认打开当前

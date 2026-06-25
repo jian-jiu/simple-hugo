@@ -8,111 +8,104 @@ tags:
     - nginx
 ---
 
+2026.06.04 docker获取的 nginx.conf
 ```shell
 #配置worker进程运行用户 nobody也是一个linux用户，一般用于启动程序，没有密码
-user  nobody;  
+user  nginx;
 #配置工作进程数目，根据硬件调整，通常等于CPU数量或者2倍于CPU数量
-worker_processes  1;  
+worker_processes  auto;
 
-#配置全局错误日志及类型，[debug | info | notice | warn | error | crit]，默认是error
-error_log  logs/error.log;  
-#error_log  logs/error.log  notice;
-#error_log  logs/error.log  info;
+# 配置全局错误日志及类型[debug | info | notice | warn | error | crit] 不配置是error
+error_log  /var/log/nginx/error.log notice;
+# 配置进程pid文件
+pid        /run/nginx.pid;
 
-pid        logs/nginx.pid;  #配置进程pid文件 
-
-
-###====================================================
-
-
-#配置工作模式和连接数
+# 配置工作模式和连接数
 events {
-    worker_connections  1024;  #配置每个worker进程连接数上限，nginx支持的总连接数就等于worker_processes * worker_connections
+    # 配置每个worker进程连接数上限，nginx支持的总连接数就等于worker_processes * worker_connections
+    worker_connections  1024;
 }
 
-###===================================================
-
-
-#配置http服务器,利用它的反向代理功能提供负载均衡支持
+# 配置http服务器,利用它的反向代理功能提供负载均衡支持
 http {
-    #配置nginx支持哪些多媒体类型，可以在conf/mime.types查看支持哪些多媒体类型
-    include       mime.types;  
-    #默认文件类型 流类型，可以理解为支持任意类型
-    default_type  application/octet-stream;  
-    #配置日志格式 
-    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-    #                  '$status $body_bytes_sent "$http_referer" '
-    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+    # 配置nginx支持哪些多媒体类型，可以在conf/mime.types查看支持哪些多媒体类型
+    include       /etc/nginx/mime.types;
+    # 默认文件类型 流类型，可以理解为支持任意类型
+    default_type  application/octet-stream;
 
-    #配置access.log日志及存放路径，并使用上面定义的main日志格式
-    #access_log  logs/access.log  main;
+    # 配置日志格式 
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
 
-    sendfile        on;  #开启高效文件传输模式
-    #tcp_nopush     on;  #防止网络阻塞
+    # 配置access.log日志及存放路径，并使用上面定义的main日志格式
+    access_log  /var/log/nginx/access.log  main;
 
-    #keepalive_timeout  0;
-    keepalive_timeout  65;  #长连接超时时间，单位是秒
+    sendfile        on; # 开启高效文件传输模式
+    #tcp_nopush     on; # 防止网络阻塞
 
-    #gzip  on;  #开启gzip压缩输出
-	
-	###-----------------------------------------------
-	
+    keepalive_timeout  65; # 长连接超时时间，单位是秒
 
-		#配置虚拟主机
-		server {
-        listen       80;  #配置监听端口
-        server_name  localhost;  #配置服务名
+    #gzip  on; # 开启gzip压缩输出
 
-        #charset koi8-r;  #配置字符集
+    include /etc/nginx/conf.d/*.conf;
+}
+```
 
-        #access_log  logs/host.access.log  main;  #配置本虚拟主机的访问日志
+conf.d/default.conf
+```shell
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
 
-		#默认的匹配斜杠/的请求，当访问路径中有斜杠/，会被该location匹配到并进行处理
-        location / {
-	    #root是配置服务器的默认网站根目录位置，默认为nginx安装主目录下的html目录
-            root   html;  
-	    #配置首页文件的名称
-            index  index.html index.htm;  
-        }		
+    #charset koi8-r;  #配置字符集
 
-        #error_page  404              /404.html;  #配置404页面
-        # redirect server error pages to the static page /50x.html
-        #error_page   500 502 503 504  /50x.html;  #配置50x错误页面
-        
-		#精确匹配
-		location = /50x.html {
-            root   html;
-        }
+    #access_log  /var/log/nginx/host.access.log  main; # 配置本虚拟主机的访问日志
 
-		#PHP 脚本请求全部转发到Apache处理
-        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-        #
-        #location ~ \.php$ {
-        #    proxy_pass   http://127.0.0.1;
-        #}
-
-		#PHP 脚本请求全部转发到FastCGI处理
-        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-        #
-        #location ~ \.php$ {
-        #    root           html;
-        #    fastcgi_pass   127.0.0.1:9000;
-        #    fastcgi_index  index.php;
-        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-        #    include        fastcgi_params;
-        #}
-
-		#禁止访问 .htaccess 文件
-        # deny access to .htaccess files, if Apache's document root
-        # concurs with nginx's one
-        #
-        #location ~ /\.ht {
-        #    deny  all;
-        #}
+	# 默认的匹配斜杠/的请求，当访问路径中有斜杠/，会被该location匹配到并进行处理
+    location / {
+	    # root是配置服务器的默认网站根目录位置，默认为nginx安装主目录下的html目录
+        root   /usr/share/nginx/html;
+	    # 配置首页文件的名称
+        index  index.html index.htm;
     }
 
-	
-	#配置另一个虚拟主机
+    #error_page  404              /404.html; # 配置404页面
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html; # 配置50x错误页面
+	# 精确匹配
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+#        root   html;
+    }
+
+    # 将PHP脚本代理给Apache监听 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # 将PHP脚本传递给侦听的FastCGI服务器 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # 拒绝访问.htaccess文件（如果是Apache的文档根）
+    # 与nginx的一致
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+    
+    # 配置另一个虚拟主机 ---------------
     # another virtual host using mix of IP-, name-, and port-based configuration
     #
     #server {
@@ -149,8 +142,10 @@ http {
     #        index  index.html index.htm;
     #    }
     #}
+    
 }
 ```
+
 ## [设置gzip压缩](https://www.cnblogs.com/Renyi-Fan/p/11047490.html)
 
 ## web管理（部署后自带nginx无需自己部署）
