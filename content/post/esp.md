@@ -19,19 +19,14 @@ https://www.bilibili.com/video/BV11e2iBZEje
 
 Xiaozhi Assistant
 - Board Type
-
 Bread Compact WiFi + LCD (面包板)
 - LCD Type
-
 ST7789 240*240
-
-- Select display style
-
-Enable default message style
+- Wake Word Implementation Type
+Multinet model (Custom Wake Word)
 
 tuan zi
 团子
-
 
 ### 文字乱码
 win搜索 区域 -> 管理 > 更改系统区域设置 > Beta: 使用 Unicode UTF-8 提供全球语言支持
@@ -93,6 +88,7 @@ pio project init --board airm2m_core_esp32c3
 ```
 
 ### esp32 c3
+[文档](https://wiki.luatos.com/chips/esp32c3/board.html)
 
 [pwm问题](https://blog.csdn.net/qq_42679566/article/details/119549859)
 [pwm问题1](https://blog.csdn.net/qq_57139623/article/details/139859580)
@@ -179,5 +175,21 @@ framework = arduino
 monitor_speed = 74880
 ```
 
-## ESP32C3
-[文档](https://wiki.luatos.com/chips/esp32c3/board.html)
+## esp32s3
+[嘉立创开发板](https://wiki.lckfb.com/zh-hans/esp32s3r8n8/)
+
+
+## 灯带遥控器
+加亮度  上3 下8
+减亮度 上5 下8
+
+白 上4 下6
+黄 上3 上8
+
+关 上6 上8 或 上5 地
+开 上3 上1 或 地
+
+3档循环 上5 上8
+
+1 3 4 5 8
+6 8

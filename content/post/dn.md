@@ -14,3 +14,9 @@ tags:
 list disk select disk 0 (将0替换为你的SSD编号) list partition
 
 [参考](https://www.disktool.cn/content-center/ssd-alignment-2048-or-4086-1016.html)
+
+## 硅脂
+霍尼韦尔7950
+
+## 跑分
+过r15 1.363

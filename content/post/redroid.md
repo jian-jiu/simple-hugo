@@ -25,5 +25,13 @@ python redroid.py -a 12.0.0 -gm
 
 logcat
 
+## root问题(好像是)
+```shell
+#!/system/bin/sh
+mount -o remount,rw /system/xbin
+chmod 755 /system/xbin
+ln -sf /sbin/su /system/xbin/su
+```
+
 ## 其他
 [安卓16](https://github.com/WayDroid-ATV/waydroid-docker-builds)

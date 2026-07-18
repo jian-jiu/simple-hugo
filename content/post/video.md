@@ -44,6 +44,14 @@ https://www.comicat.org
 https://omofun04.top
 
 https://www.6789dyy.com
+
+[电影天堂](https://dytt8899.com)
+
 ### app
 lanerc
 omofun
+
+## 字幕
+https://2.assrt.net/xml/sub/645/645010.xml
+https://www.opensubtitles.com/?locale=zh-CN
+https://assrt.net

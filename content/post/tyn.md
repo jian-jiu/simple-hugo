@@ -15,6 +15,7 @@ tags:
 ## 内阻测试仪
 t459
 https://www.mydigit.cn/forum.php?mod=viewthread&tid=564069
+https://www.mydigit.cn/thread-564069-1-1.html
 
 ## 太阳能微能量收集
 E24系列阻值

@@ -199,6 +199,10 @@ ldconfig
 [172号卡](https://haoka.lot-ml.com/login.html)
 [卡世界](https://ksjhaoka.com/#/login)
 
+## 手机卡 上网功能
+开启 KTSJLL
+关闭 ZTSJLL
+
 ## ocr
 https://github.com/equationl/paddleocr4android
 [PaddleOCR](https://juejin.cn/post/7135653114773766174)

@@ -30,7 +30,9 @@ sudo modprobe rtw88_8822be
 ## 风扇
 https://club.fnnas.com/forum.php?mod=viewthread&tid=32626
 
-## wifi
+## wifi 网卡
+[网卡工作一段时间后，就停止工作，网卡RTW8822BE](https://forum.archlinuxcn.org/t/topic/12074/6)
+
 ```shell
 #!/bin/bash
 
@@ -44,7 +46,7 @@ else
 fi
 ```
 
-## wifi 省电模式
+### 省电模式
 ```shell
 # 关闭
 sudo iw dev wlp2s0 set power_save off
@@ -64,6 +66,7 @@ wifi.powersave = 2
 
 ### 禁用 NetworkManager 的 WiFi 电源管理
 sudo sed -i 's/wifi.powersave = 2/wifi.powersave = 3/' /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+
 ### 如果文件不存在：
 echo -e "[connection]\nwifi.powersave = 3" | sudo tee /etc/NetworkManager/conf.d/wifi-powersave.conf
 
