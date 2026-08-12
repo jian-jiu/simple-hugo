@@ -11,6 +11,8 @@ tags:
 
 [windhawk win工具超级多](https://windhawk.net)
 [ocr翻译工具](https://github.com/STranslate/STranslate)
+[游戏加加](https://gamepp.com)
+[图吧工具箱](https://www.tbtool.cn)
 
 ## 系统
 [官方下载](https://www.microsoft.com/zh-cn/software-download/windows11)

@@ -17,6 +17,7 @@ tags:
 [在线免费下载视频、音频和图片](https://snapwc.com/zh)
 [在线免费下载视频、音频和图片 库推荐](https://github.com/yt-dlp/yt-dlp)
 
+[极速多协议下载管理器 —— 免费开源的 IDM 替代品](https://github.com/zerx-lab/FluxDown)
 
 ## UUID
 [参考1](https://1024tools.com/uuid)

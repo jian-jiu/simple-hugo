@@ -26,6 +26,22 @@ https://raw.githubusercontent.com/ikarus23/MifareClassicTool/master/CHANGELOG.tx
 ## 手机
 k90pm
 https://www.123865.com/s/NZ8uVv-N4EpH?notoken=1
+
+### root
+https://magiskcn.com/mi-init-boot.html
+提取 init_boot.img 在手机上修补
+拿到电脑上重命名 init_boot.img
+
+```shell
+# 重启到bl
+adb reboot bootloader
+
+# 刷入 init_boot
+fastboot flash init_boot init_boot.img
+
+# 重启
+fastboot reboot
+```
 ### 屏幕
 OPPOx9也是 ipts
 
