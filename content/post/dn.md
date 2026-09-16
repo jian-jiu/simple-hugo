@@ -9,6 +9,7 @@ tags:
 ---
 
 ## 固态硬盘分区4k对齐选2048还是4096
+26-08-17 ai 默认就可以
 固态 4096
 
 list disk select disk 0 (将0替换为你的SSD编号) list partition

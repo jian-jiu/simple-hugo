@@ -9,6 +9,10 @@ tags:
     - win
 ---
 
+## 必须
+显卡驱动
+
+## 其他
 [windhawk win工具超级多](https://windhawk.net)
 [ocr翻译工具](https://github.com/STranslate/STranslate)
 [游戏加加](https://gamepp.com)
@@ -180,6 +184,7 @@ C:\Users\xxx\AppData\Local\Microsoft\Edge\User Data\Default\Extensions
 [i713700k](https://www.intel.cn/content/www/cn/zh/products/sku/230500/intel-core-i713700k-processor-30m-cache-up-to-5-40-ghz/specifications.html)
 [显卡](https://www.intel.cn/content/www/cn/zh/support/products/80939/graphics.html)
 [13/14代超频](https://www.bilibili.com/read/cv29457601/?opus_fallback=1)
+[显卡驱动](https://www.intel.com/content/www/us/en/download/864990/intel-11th-14th-gen-processor-graphics-windows.html)
 
 ## 软链接 硬链接
 ```shell

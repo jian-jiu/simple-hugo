@@ -31,21 +31,19 @@ SPs Specials（特别篇），通常是 OVA、番外、特典影像等额外视�
 [动漫花园](https://garden.breadio.wiki)
 [动漫花园同步站](https://dmhy.myheartsite.com)
 
-https://kisssub.org
+[电影天堂](https://dytt8899.com)
 
+[末日动漫资源库](https://share.acgnx.se)
+[简单动漫](https://www.36dm.org/)
+
+https://kisssub.org
 https://www.zzzypro.com
 https://www.leijing1.com/index
 https://kkapi.eu.org
-[末日动漫资源库](https://share.acgnx.se)
-[简单动漫](https://www.36dm.org/)
 https://so.acg17.cc/index.php
 https://www.comicat.org
-
 https://omofun04.top
-
 https://www.6789dyy.com
-
-[电影天堂](https://dytt8899.com)
 
 ### app
 lanerc

@@ -32,6 +32,11 @@ H_Pre = 1440
 Fps_Out = 85.0
 Lk_Fmt = False
 
+## m3u8
+```shell
+D:\Software\Must\mpv\mpv-lazy\mpv.exe 'https://index.m3u8?title=xxx'
+```
+
 ## 动画 Anime4K
 [参考](https://zhuanlan.zhihu.com/p/117531230)
 [参考](https://www.bilibili.com/read/cv13643303/)

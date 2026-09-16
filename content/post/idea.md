@@ -11,7 +11,9 @@ tags:
 
 ## 激活
 
-[推荐](https://jetbra.in/s)[缓存](/idea/index.html "_blank")
+[推荐](https://jetbra.in/s)
+
+[缓存](/idea/index.html "_blank")
 
 ### IDEA无限时长插件
 [官网](https://zhile.io)
@@ -28,8 +30,6 @@ PREFIX,https://account.jetbrains.com.cn/lservice/rpc/validateKey.action
 jetbra目录，编辑 config-jetbrains\url.conf 文件
 新增一个 .cn 后缀的
 ```
-
-[使用ja-netfilter](https://www.nite07.com/jetbrains/)
 
 ## 热更新的Intellij插件
 https://github.com/gejun123456/HotSwapHelper/blob/master/README_CN.md
